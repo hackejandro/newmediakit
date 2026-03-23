@@ -312,30 +312,67 @@ a { color: inherit; text-decoration: none; }
 }
 .site-mockup-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--grey-3); }
 .site-mockup-url { font-size: 11px; color: var(--navy-50); margin-left: 8px; }
-.site-mockup-content { padding: 16px; background: var(--white); }
-.site-mini-header {
+.site-mockup-content { padding: 0; background: var(--white); }
+
+/* Mockup nav */
+.sm-nav {
   background: var(--white); border-bottom: 1px solid var(--navy);
-  padding: 6px 14px; display: flex; align-items: center;
-  margin: -16px -16px 12px;
+  padding: 7px 14px; display: flex; align-items: center; justify-content: space-between;
 }
-.site-mini-logo { font-family: var(--serif); color: var(--orange); font-size: 20px; font-weight: 600; text-transform: lowercase; margin-top: -5px; }
-.ad-billboard {
+.sm-logo { font-family: var(--serif); color: var(--orange); font-size: 19px; font-weight: 600; text-transform: lowercase; line-height: 1; }
+.sm-nav-right { display: flex; align-items: center; gap: 10px; }
+.sm-nav-link { font-size: 10px; font-weight: 500; color: var(--navy); letter-spacing: 0.2px; }
+.sm-subscribe-btn {
+  background: var(--navy); color: var(--white);
+  font-size: 10px; font-weight: 600; letter-spacing: 0.3px;
+  padding: 3px 9px; border-radius: 3px;
+}
+
+/* Billboard — centered with side margins like the real site */
+.sm-billboard-zone {
+  background: var(--grey-1); padding: 10px 6%;
+  display: flex; justify-content: center;
+  border-bottom: 1px solid var(--grey-2);
+}
+.sm-billboard-ad {
   background: var(--grey-2);
-  aspect-ratio: 970 / 250; width: calc(100% + 32px); margin-left: -16px;
+  aspect-ratio: 970 / 250; width: 100%;
   display: flex; align-items: center; justify-content: center;
-  margin-bottom: 12px; position: relative;
+  position: relative;
 }
-.ad-dim-label { font-size: 12px; color: var(--navy-50); }
+
+/* Article page: content + sidebar */
+.sm-page {
+  padding: 12px 14px;
+  display: grid; grid-template-columns: 1fr 120px; gap: 14px;
+  align-items: start;
+}
+.sm-section-tag { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.3px; color: var(--orange); margin-bottom: 4px; }
+.sm-headline { font-family: var(--serif); font-size: 15px; font-weight: 600; line-height: 1.35; margin-bottom: 4px; color: var(--navy); }
+.sm-byline { font-size: 10px; color: var(--navy-50); margin-bottom: 8px; }
+.sm-article-img { width: 100%; height: 80px; object-fit: cover; display: block; margin-bottom: 7px; }
+.sm-body {
+  font-size: 11px; line-height: 1.65; color: var(--navy);
+  max-height: 56px; overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+}
+
+/* Sidebar half-page ad */
+.sm-halfpage-ad {
+  background: var(--grey-2);
+  aspect-ratio: 300 / 600; width: 100%;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 5px; position: relative;
+}
+
+/* Shared ad labels */
+.ad-dim-label { font-size: 10px; color: var(--navy-50); text-align: center; line-height: 1.5; }
 .ad-badge {
-  position: absolute; top: 6px; right: 8px;
+  position: absolute; top: 5px; right: 6px;
   font-size: 9px; font-weight: 600; text-transform: uppercase;
   letter-spacing: 1px; color: var(--orange); background: var(--white);
-  border: 1px solid var(--orange); padding: 1px 6px;
-}
-.ad-halfpage {
-  background: var(--grey-2); border: 1.5px dashed var(--grey-3);
-  min-height: 240px; display: flex; align-items: center; justify-content: center;
-  flex-direction: column; gap: 6px;
+  border: 1px solid var(--orange); padding: 1px 5px;
 }
 
 /* Newsletter mockup */
@@ -705,7 +742,7 @@ a { color: inherit; text-decoration: none; }
           <div class="eo-tile-title">Your message, published as editorial content alongside EUobserver's own reporting</div>
           <div class="eo-tile-meta">by Your organisation · Stakeholder</div>
           <div class="eo-tile-excerpt">Evergreen. Distributed via newsletter to 26,000 subscribers. Shared on LinkedIn. Indexed for search — reaches new readers for months after publication.</div>
-          <a href="https://euobserver.com/206830/eu-bioeconomy-aspirations-require-an-increasing-supply-of-renewable-wood/" target="_blank" class="eo-btn eo-btn--outline" style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;font-size:13px;">
+          <a href="YOUR_STAKEHOLDER_ARTICLE_URL_HERE" target="_blank" class="eo-btn eo-btn--outline" style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;font-size:13px;">
             Show me
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           </a>
@@ -718,27 +755,45 @@ a { color: inherit; text-decoration: none; }
           <div class="site-mockup-dot"></div>
           <div class="site-mockup-dot"></div>
           <div class="site-mockup-dot"></div>
-          <span class="site-mockup-url">euobserver.com</span>
+          <span class="site-mockup-url">euobserver.com · article page</span>
         </div>
         <div class="site-mockup-content">
-          <div class="site-mini-header">
-            <span class="site-mini-logo">EU<strong>observer</strong></span>
+
+          <!-- Nav -->
+          <div class="sm-nav">
+            <span class="sm-logo">EU<strong>observer</strong></span>
+            <div class="sm-nav-right">
+              <span class="sm-nav-link">Sections</span>
+              <span class="sm-nav-link">Account</span>
+              <span class="sm-subscribe-btn">Subscribe</span>
+            </div>
           </div>
-         <div class="ad-billboard">
-  <img src="https://github.com/hackejandro/newmediakit/blob/main/Banner%20970x250.jpeg?raw=true" style="width:100%;height:100%;object-fit:cover;display:block;" alt="Dynamic banner example">
-		</div>
-          <div style="display:grid;grid-template-columns:2fr 1fr;gap:12px;">
-            <div>
-              <div style="background:var(--grey-2);height:160px;margin-bottom:8px;overflow:hidden;">
-                <img src="https://static.euobserver.com/2025/04/c2d6ccc6-226a-4fb3-b80c-ab07f9519a5a-aa3b62c6-8db1-40ae-8bbf-85502d07778c-5261f3e9-71bd-4bb3-a3f8-d29464706c5b-600x400.jpeg" style="width:100%;height:100%;object-fit:cover;" alt="">
+
+          <!-- Billboard — centred with visible side whitespace -->
+          <div class="sm-billboard-zone">
+            <div class="sm-billboard-ad">
+              <div class="ad-dim-label">970 × 250 · Dynamic Banner</div>
+              <div class="ad-badge">Your ad here</div>
+            </div>
+          </div>
+
+          <!-- Article body + sidebar -->
+          <div class="sm-page">
+            <div class="sm-article">
+              <div class="sm-section-tag">Foreign Affairs</div>
+              <div class="sm-headline">Hungary veto on Ukraine and carbon market to hijack EU summit</div>
+              <div class="sm-byline">by Elena Sánchez Nicolás · 3h ago</div>
+              <img class="sm-article-img" src="https://static.euobserver.com/2025/04/c2d6ccc6-226a-4fb3-b80c-ab07f9519a5a-aa3b62c6-8db1-40ae-8bbf-85502d07778c-5261f3e9-71bd-4bb3-a3f8-d29464706c5b-600x400.jpeg" alt="">
+              <div class="sm-body">Hungary is set to derail this week's EU summit on Ukraine aid and climate finance after Budapest confirmed it would veto any new military support package. Senior diplomats say the council presidency has prepared contingency plans, but reaching consensus on the budget amendment may prove difficult with just days remaining before the scheduled vote...</div>
+            </div>
+            <div class="sm-sidebar">
+              <div class="sm-halfpage-ad">
+                <div class="ad-dim-label">300 × 600<br>Half page</div>
+                <div class="ad-badge">Your ad</div>
               </div>
-              <div style="font-family:var(--serif);font-size:14px;font-weight:600;line-height:1.3;">Hungary veto on Ukraine and carbon market to hijack EU summit</div>
-              <div style="font-size:11px;color:var(--navy-50);margin-top:3px;">by Elena Sánchez Nicolás</div>
-            </div>
-            <div class="ad-halfpage">
-              <div class="ad-dim-label" style="font-size:11px;text-align:center;">300 × 600<br>Half page</div>
             </div>
           </div>
+
         </div>
       </div>
 
