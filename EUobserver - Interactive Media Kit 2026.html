@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EUobserver — Partner With Us</title>
+<link rel="icon" href="https://euobserver.com/favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.typekit.net/sdk5rbj.css">
+<style>
+:root {
+  --navy:    rgb(0, 0, 32);
+  --navy-50: rgba(0, 0, 32, 0.5);
+  --orange:  rgb(240, 82, 60);
+  --orange-h:rgb(250, 92, 70);
+  --white:   #fff;
+  --grey-1:  rgb(249, 249, 249);
+  --grey-2:  rgb(241, 241, 241);
+  --grey-3:  rgb(224, 224, 224);
+  --border:  rgba(0, 0, 0, 0.12);
+  --success: rgb(46, 125, 50);
+  --error:   rgb(211, 47, 47);
+  --serif:   'freight-text-pro', Georgia, serif;
+  --sans:    'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--white); color: var(--navy); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+
+/* ── HEADER ─────────────────────────────────── */
+.eo-header {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--navy);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 32px; height: 64px;
+}
+.eo-logo {
+  font-family: var(--serif);
+  font-size: 42px; font-weight: 600;
+  color: var(--orange);
+  text-transform: lowercase;
+  margin-top: -14px;
+  line-height: 1;
+}
+.eo-logo strong { font-weight: 900; }
+.eo-header-tag {
+  font-size: 12px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 1.2px;
+  color: var(--navy-50);
+}
+
+/* ── PROGRESS ────────────────────────────────── */
+.progress-wrap { height: 3px; background: var(--grey-2); }
+.progress-bar  { height: 100%; background: var(--orange); width: 0; transition: width 0.5s ease; }
+
+/* ── SCREENS ─────────────────────────────────── */
+.screen { display: none; opacity: 0; transform: translateY(16px); transition: opacity 0.35s ease, transform 0.35s ease; }
+.screen.active  { display: block; }
+.screen.visible { opacity: 1; transform: none; }
+
+/* ── HERO ────────────────────────────────────── */
+.hero {
+  min-height: calc(100vh - 67px);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 80px 32px;
+  background: var(--white);
+}
+.hero-label {
+  font-size: 11px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 2px; color: var(--navy-50); margin-bottom: 20px;
+}
+.hero h1 {
+  font-family: var(--serif); font-size: clamp(36px, 6vw, 72px);
+  font-weight: 400; line-height: 1.1;
+  max-width: 760px; margin-bottom: 24px;
+}
+.hero h1 em { font-style: italic; color: var(--orange); }
+.hero-sub {
+  font-size: 18px; color: var(--navy-50); max-width: 540px;
+  line-height: 1.7; margin-bottom: 40px;
+}
+.eo-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 44px; padding: 0 28px;
+  border-radius: 8888px; border: none; cursor: pointer;
+  font-family: var(--sans); font-size: 15px; font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+}
+.eo-btn--orange { background: var(--orange); color: var(--white); }
+.eo-btn--orange:hover { background: var(--orange-h); }
+.eo-btn--outline { background: transparent; color: var(--navy); border: 1.5px solid var(--border); }
+.eo-btn--outline:hover { border-color: var(--navy); }
+.hero-escape {
+  display: block; margin-top: 16px;
+  font-size: 13px; color: var(--navy-50);
+  background: none; border: none; cursor: pointer;
+  font-family: var(--sans);
+  text-decoration: underline; text-underline-offset: 3px;
+}
+.hero-escape:hover { color: var(--navy); }
+
+/* ── QUESTION SCREENS ────────────────────────── */
+.q-screen {
+  min-height: calc(100vh - 67px);
+  padding: 72px 32px;
+  display: flex; flex-direction: column; align-items: center;
+}
+.q-screen.light { background: var(--white); }
+.q-screen.alt   { background: var(--grey-1); }
+.q-step {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 2px;
+  color: var(--navy-50); margin-bottom: 12px;
+}
+.q-title {
+  font-family: var(--serif); font-size: clamp(28px, 4vw, 48px);
+  font-weight: 400; text-align: center; margin-bottom: 10px;
+}
+.q-sub {
+  font-size: 16px; color: var(--navy-50); text-align: center;
+  margin-bottom: 48px; max-width: 500px;
+}
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px; width: 100%; max-width: 800px;
+}
+@media (max-width: 640px) { .options { grid-template-columns: 1fr; } }
+.opt-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 28px 24px;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  display: flex; flex-direction: column; gap: 8px;
+  -webkit-user-select: none; user-select: none;
+}
+.q-screen.alt .opt-card { background: var(--white); }
+.opt-card:hover { border-color: var(--navy); box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.opt-card.selected { border-color: var(--orange); box-shadow: 0 0 0 2px rgba(240,82,60,0.15); }
+.opt-card--wide { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 20px; max-width: 100%; }
+.opt-card--wide .opt-icon { flex-shrink: 0; }
+.opt-card--wide .opt-title { font-size: 17px; }
+@media (max-width: 640px) { .opt-card--wide { flex-direction: column; } }
+.opt-icon { color: var(--orange); line-height: 1; margin-bottom: 4px; }
+.opt-icon svg { width: 28px; height: 28px; }
+.opt-title { font-family: var(--serif); font-size: 18px; font-weight: 700; }
+.opt-desc  { font-size: 14px; color: var(--navy-50); line-height: 1.5; }
+.q-next-wrap { margin-top: 28px; }
+.q-escape {
+  margin-top: 20px; display: block;
+  font-size: 13px; color: var(--navy-50);
+  background: none; border: none; cursor: pointer;
+  font-family: var(--sans);
+  text-decoration: underline; text-underline-offset: 3px;
+}
+.q-escape:hover { color: var(--navy); }
+
+/* ── RESULT SCREEN ───────────────────────────── */
+.result-screen { max-width: 860px; margin: 0 auto; padding: 56px 32px 80px; }
+.back-btn {
+  display: flex; align-items: center; gap: 6px;
+  width: fit-content;
+  font-size: 13px; color: var(--navy-50);
+  background: none; border: none; cursor: pointer;
+  font-family: var(--sans); margin-bottom: 28px;
+  padding: 0;
+}
+.back-btn:hover { color: var(--navy); }
+.result-badge {
+  display: inline-block;
+  background: var(--orange); color: var(--white);
+  font-size: 11px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 1.5px;
+  padding: 4px 14px; border-radius: 8888px;
+  margin-bottom: 16px;
+}
+.result-title {
+  font-family: var(--serif); font-size: clamp(28px, 4vw, 44px);
+  font-weight: 400; line-height: 1.15; margin-bottom: 10px;
+}
+.result-intro { font-size: 17px; color: var(--navy-50); margin-bottom: 40px; max-width: 620px; }
+
+/* Package card */
+.pkg-card {
+  border: 2px solid var(--orange);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+.pkg-header {
+  background: var(--orange); color: var(--white);
+  padding: 20px 28px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 8px;
+}
+.pkg-name { font-family: var(--serif); font-size: 22px; font-weight: 700; }
+.pkg-price { font-family: var(--serif); font-size: 32px; font-weight: 700; }
+.pkg-price-note { font-size: 13px; opacity: 0.75; }
+.pkg-body { padding: 24px 28px; }
+.pkg-copy { font-size: 15px; line-height: 1.7; color: var(--navy-50); margin-bottom: 20px; }
+.pkg-items { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+.pkg-item {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 10px 14px;
+  background: var(--grey-1); border-radius: 4px;
+  font-size: 14px;
+}
+.pkg-item-name { font-weight: 600; }
+.pkg-item-desc { font-size: 13px; color: var(--navy-50); margin-top: 1px; }
+.pkg-item-price { color: var(--orange); font-weight: 700; white-space: nowrap; margin-left: 16px; }
+.pkg-value-row {
+  display: flex; justify-content: space-between;
+  font-size: 13px; color: var(--navy-50);
+  border-top: 1px solid var(--grey-3); padding-top: 12px; margin-top: 4px;
+}
+.pkg-value-row strong { color: var(--navy); }
+
+/* Case study */
+.case-study {
+  border-left: 3px solid var(--orange);
+  background: var(--grey-1);
+  padding: 24px 28px;
+  margin-bottom: 40px;
+  border-radius: 0 6px 6px 0;
+}
+.case-label {
+  font-size: 11px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 1.5px; color: var(--orange); margin-bottom: 8px;
+}
+.case-title { font-family: var(--serif); font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+.case-body  { font-size: 14px; line-height: 1.7; color: var(--navy-50); }
+
+/* Section headings inside result */
+.section-heading {
+  font-family: var(--serif); font-size: 22px; font-weight: 700;
+  margin-bottom: 20px; padding-bottom: 10px;
+  border-bottom: 1px solid var(--grey-3);
+}
+
+/* Stats strip — white bg, no dark */
+.stats-strip {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
+  border: 1px solid var(--grey-3); border-radius: 6px;
+  overflow: hidden; margin: 28px 0;
+}
+.stat-item {
+  padding: 24px 16px; text-align: center;
+  border-right: 1px solid var(--grey-3); background: var(--white);
+}
+.stat-item:last-child { border-right: none; }
+.stat-num { font-family: var(--serif); font-size: 28px; font-weight: 700; color: var(--orange); }
+.stat-label { font-size: 12px; color: var(--navy-50); margin-top: 3px; }
+
+/* Demographics */
+.demo-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0 32px;
+}
+@media (max-width: 680px) { .demo-grid { grid-template-columns: 1fr; } }
+.demo-card {
+  background: var(--grey-1); border: 1px solid var(--grey-3);
+  padding: 24px 20px; border-radius: 6px;
+}
+.demo-card h4 {
+  font-family: var(--serif); font-size: 15px; font-weight: 700;
+  margin-bottom: 16px;
+}
+.bar-row { display: flex; align-items: center; margin-bottom: 7px; }
+.bar-label { width: 120px; font-size: 12px; flex-shrink: 0; line-height: 1.3; }
+.bar-track { flex: 1; height: 12px; background: var(--grey-3); border-radius: 2px; overflow: hidden; }
+.bar-fill  { height: 100%; background: var(--orange); border-radius: 2px; transition: width 1.2s ease; }
+.bar-val   { width: 46px; text-align: right; font-size: 12px; font-weight: 600; flex-shrink: 0; margin-left: 6px; }
+
+/* Occupation swatches */
+.occ-grid { display: flex; flex-direction: column; gap: 7px; }
+.occ-row  { display: flex; align-items: center; gap: 10px; }
+.occ-dot  { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+.occ-label { font-size: 12px; flex: 1; }
+.occ-val   { font-size: 12px; font-weight: 600; }
+
+/* Content mockups */
+.eo-tile {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--grey-3); margin-bottom: 16px;
+  overflow: hidden; background: var(--white);
+  transition: box-shadow 0.2s;
+}
+.eo-tile:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.06); }
+@media (max-width: 600px) { .eo-tile { grid-template-columns: 1fr; } }
+.eo-tile-image { overflow: hidden; }
+.eo-tile-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.eo-tile-header { padding: 24px; display: flex; flex-direction: column; justify-content: center; }
+.eo-tile-tag {
+  display: inline-block; font-size: 10px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 1px;
+  padding: 3px 10px; margin-bottom: 10px; width: fit-content;
+  background: var(--navy); color: var(--white);
+}
+.eo-tile-title { font-family: var(--serif); font-size: 18px; font-weight: 400; line-height: 1.3; margin-bottom: 8px; }
+.eo-tile-meta  { font-size: 12px; color: var(--navy-50); margin-bottom: 8px; }
+.eo-tile-excerpt { font-size: 13px; color: var(--navy-50); line-height: 1.6; }
+
+/* Browser-chrome ad mockup */
+.site-mockup { border: 1px solid var(--grey-3); margin: 16px 0; overflow: hidden; border-radius: 4px; }
+.site-mockup-bar {
+  background: var(--grey-2); padding: 8px 16px;
+  display: flex; align-items: center; gap: 6px;
+  border-bottom: 1px solid var(--grey-3);
+}
+.site-mockup-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--grey-3); }
+.site-mockup-url { font-size: 11px; color: var(--navy-50); margin-left: 8px; }
+.site-mockup-content { padding: 16px; background: var(--white); }
+.site-mini-header {
+  background: var(--white); border-bottom: 1px solid var(--navy);
+  padding: 6px 14px; display: flex; align-items: center;
+  margin: -16px -16px 12px;
+}
+.site-mini-logo { font-family: var(--serif); color: var(--orange); font-size: 20px; font-weight: 600; text-transform: lowercase; margin-top: -5px; }
+.ad-billboard {
+  background: var(--grey-2);
+  aspect-ratio: 970 / 250; width: calc(100% + 32px); margin-left: -16px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 12px; position: relative;
+}
+.ad-dim-label { font-size: 12px; color: var(--navy-50); }
+.ad-badge {
+  position: absolute; top: 6px; right: 8px;
+  font-size: 9px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 1px; color: var(--orange); background: var(--white);
+  border: 1px solid var(--orange); padding: 1px 6px;
+}
+.ad-halfpage {
+  background: var(--grey-2); border: 1.5px dashed var(--grey-3);
+  min-height: 240px; display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 6px;
+}
+
+/* Newsletter mockup */
+.nl-mockup { border: 1px solid var(--grey-3); overflow: hidden; margin: 16px 0; border-radius: 4px; }
+.nl-header { background: var(--grey-1); border-bottom: 1px solid var(--grey-3); padding: 12px 20px; display: flex; align-items: center; gap: 12px; }
+.nl-logo   { font-family: var(--serif); font-size: 18px; color: var(--orange); font-weight: 600; text-transform: lowercase; margin-top: -6px; }
+.nl-tag    { font-size: 12px; color: var(--navy-50); }
+.nl-body   { padding: 20px; background: var(--white); }
+.nl-story  { border-left: 2.5px solid var(--grey-3); padding-left: 12px; margin-bottom: 14px; }
+.nl-story-title { font-family: var(--serif); font-size: 14px; line-height: 1.4; }
+.nl-story-desc  { font-size: 12px; color: var(--navy-50); margin-top: 3px; }
+.nl-ad { background: var(--grey-1); border: 1.5px solid var(--orange); padding: 14px; margin: 14px 0; text-align: center; border-radius: 3px; }
+.nl-ad-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--orange); margin-bottom: 5px; }
+.nl-ad-title { font-family: var(--serif); font-size: 14px; font-weight: 700; margin-bottom: 3px; }
+.nl-ad-sub   { font-size: 12px; color: var(--navy-50); }
+
+/* Podcast mockup */
+.podcast-mockup {
+  background: var(--grey-1); border: 1px solid var(--grey-3);
+  padding: 20px 24px; display: flex; align-items: center; gap: 18px;
+  margin: 16px 0; border-radius: 4px;
+}
+.podcast-play {
+  width: 48px; height: 48px; background: var(--orange); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; color: var(--white);
+}
+.podcast-play svg { width: 20px; height: 20px; }
+.pod-show { font-family: var(--serif); font-size: 16px; font-weight: 700; }
+.pod-host { font-size: 12px; color: var(--navy-50); }
+.pod-ep   { font-size: 12px; color: var(--navy-50); margin-top: 4px; }
+.podcast-waveform { flex: 1; height: 36px; display: flex; align-items: center; gap: 2px; }
+.podcast-waveform span { display: block; width: 3px; background: var(--orange); opacity: 0.45; border-radius: 2px; }
+
+/* Live section heading */
+.live-section { margin: 40px 0 32px; }
+.live-section h3 { font-family: var(--serif); font-size: 20px; font-weight: 700; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 1px solid var(--grey-3); }
+
+/* ── PRICE TABLES ─────────────────────────────── */
+.price-table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+.price-table th {
+  background: var(--grey-2); color: var(--navy);
+  font-size: 11px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.8px;
+  padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--grey-3);
+}
+.price-table td { padding: 11px 14px; border-bottom: 1px solid var(--grey-2); font-size: 14px; }
+.price-table tr:hover td { background: var(--grey-1); }
+.price-val { font-weight: 600; color: var(--orange); text-align: right !important; white-space: nowrap; }
+.pl-category { margin-bottom: 32px; }
+.pl-category h3 {
+  font-family: var(--serif); font-size: 17px; font-weight: 700;
+  padding-bottom: 8px; border-bottom: 2px solid var(--orange); margin-bottom: 0;
+}
+
+/* ── LEAD FORM ────────────────────────────────── */
+.form-section {
+  background: var(--grey-1); border: 1px solid var(--grey-3);
+  border-radius: 6px; padding: 48px 32px; margin-top: 40px;
+}
+.form-inner { max-width: 500px; margin: 0 auto; text-align: center; }
+.form-inner h3 { font-family: var(--serif); font-size: 24px; font-weight: 400; margin-bottom: 6px; }
+.form-inner p  { color: var(--navy-50); font-size: 14px; margin-bottom: 24px; }
+.form-row { display: flex; gap: 10px; margin-bottom: 10px; }
+@media (max-width: 500px) { .form-row { flex-direction: column; } }
+.eo-field {
+  flex: 1; display: flex; flex-direction: column;
+  border: 1px solid var(--border); border-radius: 6px;
+  padding: 6px 14px 8px; background: var(--white);
+  transition: border-color 0.2s;
+}
+.eo-field:focus-within { border-color: var(--navy); }
+.eo-field label { font-size: 11px; color: var(--navy-50); margin-bottom: 1px; }
+.eo-field input, .eo-field textarea {
+  border: none; outline: none; font-size: 14px;
+  font-family: var(--sans); background: transparent; color: var(--navy);
+  resize: none;
+}
+.eo-field input::placeholder { color: var(--navy-50); }
+.form-submit {
+  background: var(--orange); color: var(--white); border: none;
+  border-radius: 8888px; height: 44px; padding: 0 32px;
+  font-size: 15px; font-weight: 600; font-family: var(--sans);
+  cursor: pointer; margin-top: 8px; transition: background 0.2s; width: 100%;
+}
+.form-submit:hover { background: var(--orange-h); }
+.form-msg { margin-top: 10px; font-size: 13px; min-height: 18px; color: var(--navy-50); }
+.form-msg.success { color: var(--success); }
+.form-msg.error   { color: var(--error); }
+.contact-line { text-align: center; padding: 28px 0 0; color: var(--navy-50); font-size: 14px; }
+.contact-line a { color: var(--orange); }
+
+/* ── TABS (show-all mode) ────────────────────────── */
+.pkg-tabs {
+  display: flex; gap: 0; margin-bottom: 0;
+  border-bottom: 2px solid var(--grey-3);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.pkg-tab {
+  flex-shrink: 0;
+  padding: 12px 20px;
+  font-family: var(--sans);
+  font-size: 13px; font-weight: 600;
+  color: var(--navy-50);
+  background: none; border: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+.pkg-tab:hover { color: var(--navy); }
+.pkg-tab.active { color: var(--orange); border-bottom-color: var(--orange); }
+.pkg-tab-panel { display: none; }
+.pkg-tab-panel.active { display: block; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="eo-header">
+  <a class="eo-logo" href="https://euobserver.com/">EU<strong>observer</strong></a>
+  <span class="eo-header-tag">Partner with us</span>
+</header>
+<div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+
+<!-- ═══ SCREEN 0: HERO ═══════════════════════════════════ -->
+<div class="screen active" id="s0">
+  <div class="hero">
+    <div class="hero-label">Media Kit 2026</div>
+    <h1>Reach the people who <em>shape</em> EU&nbsp;policy</h1>
+    <p class="hero-sub">450,000+ monthly readers across institutions, governments, and the Brussels policy ecosystem. Let's find the right format for your message.</p>
+    <button class="eo-btn eo-btn--orange" onclick="goTo(1)">Find my format&ensp;&rarr;</button>
+    <button class="hero-escape" onclick="goTo('pricelist')">Just show me the price list</button>
+  </div>
+</div>
+
+<!-- ═══ SCREEN 1: GOAL ═══════════════════════════════════ -->
+<div class="screen" id="s1">
+  <div class="q-screen light">
+    <div class="q-step">Step 1 of 3</div>
+    <div class="q-title">What are you trying to achieve?</div>
+    <div class="q-sub">Pick the one that's closest — we'll match you to the right package.</div>
+    <div class="options">
+      <div class="opt-card" onclick="choose('goal','awareness');goTo(2)">
+        <div class="opt-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        </div>
+        <div class="opt-title">Campaign awareness</div>
+        <div class="opt-desc">Get your organisation, cause, or brand in front of EU decision-makers over a defined campaign period.</div>
+      </div>
+      <div class="opt-card" onclick="choose('goal','thought');goTo(2)">
+        <div class="opt-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <div class="opt-title">Thought leadership</div>
+        <div class="opt-desc">Build a credible, recognised voice in the Brussels policy conversation over months and years.</div>
+      </div>
+      <div class="opt-card" onclick="choose('goal','policy');goTo(2)">
+        <div class="opt-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 13h6M9 17h4"/></svg>
+        </div>
+        <div class="opt-title">Policy influence</div>
+        <div class="opt-desc">Shape a specific legislative debate by reaching MEPs, Commission officials, and policy advisers at the right moment.</div>
+      </div>
+      <div class="opt-card" onclick="choose('goal','event');goTo(2)">
+        <div class="opt-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+        </div>
+        <div class="opt-title">Event or launch</div>
+        <div class="opt-desc">Drive registrations and attendance from the EU affairs community for a conference, report launch, or webinar.</div>
+      </div>
+      <div class="opt-card opt-card--wide" onclick="choose('goal','all');goTo('result')">
+        <div class="opt-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        </div>
+        <div>
+          <div class="opt-title">I don't know yet — show me what you can do</div>
+          <div class="opt-desc">See our full range of formats and packages. Browse what resonates and tell us when you're ready.</div>
+        </div>
+      </div>
+    </div>
+    <button class="q-escape" onclick="goTo('pricelist')">Just show me the price list</button>
+  </div>
+</div>
+
+<!-- ═══ SCREEN 2: AUDIENCE (multiselect) ═════════════════ -->
+<div class="screen" id="s2">
+  <div class="q-screen alt">
+    <div class="q-step">Step 2 of 3</div>
+    <div class="q-title">Who are you trying to reach?</div>
+    <div class="q-sub">Select all that apply — our audience spans the full EU policy ecosystem.</div>
+    <div class="options" id="audienceOptions">
+      <div class="opt-card" data-aud="institutions" onclick="toggleAud(this,'institutions')">
+        <div class="opt-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 22V9l9-7 9 7v13"/><rect x="9" y="13" width="6" height="9"/><path d="M3 22h18"/></svg>
+        </div>
+        <div class="opt-title">EU institutions</div>
+        <div class="opt-desc">Commission, Parliament, Council officials — the people writing the rules.</div>
+      </div>
+      <div class="opt-card" data-aud="industry" onclick="toggleAud(this,'industry')">
+        <div class="opt-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+        </div>
+        <div class="opt-title">Industry &amp; corporates</div>
+        <div class="opt-desc">Companies, trade associations, and industry bodies active in Brussels.</div>
+      </div>
+      <div class="opt-card" data-aud="ngo" onclick="toggleAud(this,'ngo')">
+        <div class="opt-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <div class="opt-title">NGOs &amp; civil society</div>
+        <div class="opt-desc">Advocacy organisations, think tanks, and civil society groups in EU affairs.</div>
+      </div>
+      <div class="opt-card" data-aud="citizens" onclick="toggleAud(this,'citizens')">
+        <div class="opt-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="opt-title">Citizens</div>
+        <div class="opt-desc">Engaged European citizens who follow EU affairs closely — nearly half our readership.</div>
+      </div>
+    </div>
+    <div class="q-next-wrap">
+      <button class="eo-btn eo-btn--orange" id="audNextBtn" onclick="audNext()" style="opacity:0.4;pointer-events:none;">Next&ensp;&rarr;</button>
+    </div>
+    <button class="q-escape" onclick="goTo('pricelist')">Just show me the price list</button>
+  </div>
+</div>
+
+<!-- ═══ SCREEN 3: BUDGET ══════════════════════════════════ -->
+<div class="screen" id="s3">
+  <div class="q-screen light">
+    <div class="q-step">Step 3 of 3</div>
+    <div class="q-title">What kind of investment are you thinking?</div>
+    <div class="q-sub">This helps us recommend the right mix of products.</div>
+    <div class="options" style="max-width:700px;grid-template-columns:1fr 1fr;">
+      <div class="opt-card" onclick="choose('budget','starter');goTo('result')">
+        <div class="opt-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+        </div>
+        <div class="opt-title">Testing the waters</div>
+        <div class="opt-desc">Under €5,000 — a focused single placement to see how it performs.</div>
+      </div>
+      <div class="opt-card" onclick="choose('budget','mid');goTo('result')">
+        <div class="opt-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+        </div>
+        <div class="opt-title">Serious campaign</div>
+        <div class="opt-desc">€5,000–15,000 — multi-channel push over weeks or months.</div>
+      </div>
+      <div class="opt-card" onclick="choose('budget','premium');goTo('result')">
+        <div class="opt-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+        </div>
+        <div class="opt-title">Go big</div>
+        <div class="opt-desc">€15,000+ — flagship presence, themed editorial, full topic ownership.</div>
+      </div>
+      <div class="opt-card" onclick="choose('budget','unsure');goTo('result')">
+        <div class="opt-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <div class="opt-title">Not sure yet</div>
+        <div class="opt-desc">Show me what's possible and I'll figure out the budget.</div>
+      </div>
+    </div>
+    <button class="q-escape" onclick="goTo('pricelist')">Just show me the price list</button>
+  </div>
+</div>
+
+<!-- ═══ SCREEN: RESULT ════════════════════════════════════ -->
+<div class="screen" id="sResult">
+  <div class="result-screen">
+    <button class="back-btn" onclick="goTo(1)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      Start over
+    </button>
+    <div class="result-badge" id="resultBadge">Your recommendation</div>
+    <h2 class="result-title" id="resultTitle">Here's what we'd suggest</h2>
+    <p class="result-intro" id="resultIntro"></p>
+
+    <!-- Packages injected here -->
+    <div id="resultPackages"></div>
+
+    <!-- Case study injected here -->
+    <div id="resultCase"></div>
+
+    <!-- Individual products (tabbed) -->
+    <div id="resultIndividual">
+      <div style="margin:40px 0 20px;padding-top:40px;border-top:1px solid var(--grey-3);">
+        <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--navy-50);margin-bottom:8px;">À la carte</div>
+        <div style="font-family:var(--serif);font-size:22px;font-weight:400;margin-bottom:6px;">No need for a package?</div>
+        <div style="font-size:15px;color:var(--navy-50);margin-bottom:20px;">All our products are available on an individual basis.</div>
+      </div>
+      <div class="pkg-tabs" data-ctx="alc">
+        <button class="pkg-tab active" onclick="switchProdTab('alc','stakeholder')">Stakeholder Content</button>
+        <button class="pkg-tab" onclick="switchProdTab('alc','banners')">Website Banners</button>
+        <button class="pkg-tab" onclick="switchProdTab('alc','newsletter')">Newsletter</button>
+        <button class="pkg-tab" onclick="switchProdTab('alc','magazine')">Magazine</button>
+        <button class="pkg-tab" onclick="switchProdTab('alc','multimedia')">Multimedia</button>
+      </div>
+      <div class="pkg-tab-panel active" data-ctx="alc" data-ptab="stakeholder">
+        <div class="pl-category"><h3>Stakeholder Content</h3>
+          <table class="price-table">
+            <tr><th>Product</th><th>Details</th><th style="text-align:right">Price</th></tr>
+            <tr><td>Stakeholder Article</td><td>Published on site + newsletter distribution + social promotion + search indexing</td><td class="price-val">€4,500</td></tr>
+            <tr><td>Writing Service (add-on)</td><td>EUobserver journalist writes from your brief, with feedback rounds</td><td class="price-val">+€1,500</td></tr>
+            <tr><td>Magazine Stakeholder Article</td><td>Bi-yearly themed magazine — April or October edition</td><td class="price-val">€5,500</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="pkg-tab-panel" data-ctx="alc" data-ptab="banners">
+        <div class="pl-category"><h3>Website Banners</h3>
+          <table class="price-table">
+            <tr><th>Product</th><th>Details</th><th style="text-align:right">Price</th></tr>
+            <tr><td>Dynamic Banner</td><td>1 week · 150,000 impressions · Billboard (970×250), mobile (320×100) &amp; medium rectangle (300×250)</td><td class="price-val">€2,400 /week</td></tr>
+            <tr><td>Half Page Banner</td><td>1 week · 50,000 impressions · 300×600 alongside article content</td><td class="price-val">€2,000 /week</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="pkg-tab-panel" data-ctx="alc" data-ptab="newsletter">
+        <div class="pl-category"><h3>Newsletter Advertising</h3>
+          <table class="price-table">
+            <tr><th>Product</th><th>Details</th><th style="text-align:right">Price</th></tr>
+            <tr><td>Newsletter Text Ad</td><td>1 week (5 newsletters) · Short message + hyperlink · Mon–Fri at 7:30am</td><td class="price-val">€1,300 /week</td></tr>
+            <tr><td>Newsletter Image Ad</td><td>1 week (5 newsletters) · 600×200 or 300×250 · Animated GIF supported</td><td class="price-val">€2,000 /week</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="pkg-tab-panel" data-ctx="alc" data-ptab="magazine">
+        <div class="pl-category"><h3>Magazine</h3>
+          <table class="price-table">
+            <tr><th>Product</th><th>Details</th><th style="text-align:right">Price</th></tr>
+            <tr><td>Inside Cover</td><td>Premium position, first page opened · bi-yearly print edition</td><td class="price-val">€4,500</td></tr>
+            <tr><td>Back Cover</td><td>High-visibility back page · bi-yearly print edition</td><td class="price-val">€5,000</td></tr>
+            <tr><td>Full Page A4</td><td>Full-page placement within the magazine</td><td class="price-val">€3,400</td></tr>
+            <tr><td>Double-Page Spread</td><td>2 × A4 — maximum visual impact</td><td class="price-val">€6,500</td></tr>
+            <tr><td>Themed Magazine</td><td>Custom-produced magazine on a topic of your choice; includes content + ad exclusivity</td><td class="price-val">from €25,000</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="pkg-tab-panel" data-ctx="alc" data-ptab="multimedia">
+        <div class="pl-category"><h3>Multimedia &amp; Custom</h3>
+          <table class="price-table">
+            <tr><th>Product</th><th>Details</th><th style="text-align:right">Price</th></tr>
+            <tr><td>Event Livestream</td><td>Your event streamed on EUobserver, with newsletter + social posts to drive viewers</td><td class="price-val">Custom</td></tr>
+            <tr><td>Podcast Advertising</td><td>Briefed · host-read or 30-second produced spot · with Léa Marchal</td><td class="price-val">Custom</td></tr>
+            <tr><td>Newsletter Network</td><td>Extended reach via The European Correspondent's newsletter network</td><td class="price-val">Custom</td></tr>
+            <tr><td>Video Production</td><td>Short documentary series by EUobserver's network of video journalists</td><td class="price-val">Custom</td></tr>
+            <tr><td>Custom Webinar</td><td>EUobserver-hosted panel on a topic of your choosing · editorially independent</td><td class="price-val">Custom</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- See it in action -->
+    <div class="live-section">
+      <h3>See it in action</h3>
+
+      <!-- Stakeholder tile -->
+      <div class="eo-tile">
+        <div class="eo-tile-image">
+          <img src="https://static.euobserver.com/2026/03/ChatGPT-Image-18-mar-2026-12_16_59-1200x800.png" alt="Stakeholder content example">
+        </div>
+        <div class="eo-tile-header">
+          <span class="eo-tile-tag">Stakeholder content</span>
+          <div class="eo-tile-title">Your message, published as editorial content alongside EUobserver's own reporting</div>
+          <div class="eo-tile-meta">by Your organisation · Stakeholder</div>
+          <div class="eo-tile-excerpt">Evergreen. Distributed via newsletter to 26,000 subscribers. Shared on LinkedIn. Indexed for search — reaches new readers for months after publication.</div>
+          <a href="YOUR_STAKEHOLDER_ARTICLE_URL_HERE" target="_blank" class="eo-btn eo-btn--outline" style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;font-size:13px;">
+            Show me
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Ad placement mockup -->
+      <div class="site-mockup">
+        <div class="site-mockup-bar">
+          <div class="site-mockup-dot"></div>
+          <div class="site-mockup-dot"></div>
+          <div class="site-mockup-dot"></div>
+          <span class="site-mockup-url">euobserver.com</span>
+        </div>
+        <div class="site-mockup-content">
+          <div class="site-mini-header">
+            <span class="site-mini-logo">EU<strong>observer</strong></span>
+          </div>
+          <div class="ad-billboard">
+            <div class="ad-dim-label">970 × 250 — Dynamic Banner (desktop billboard)</div>
+            <div class="ad-badge">Your ad here</div>
+          </div>
+          <div style="display:grid;grid-template-columns:2fr 1fr;gap:12px;">
+            <div>
+              <div style="background:var(--grey-2);height:160px;margin-bottom:8px;overflow:hidden;">
+                <img src="https://static.euobserver.com/2025/04/c2d6ccc6-226a-4fb3-b80c-ab07f9519a5a-aa3b62c6-8db1-40ae-8bbf-85502d07778c-5261f3e9-71bd-4bb3-a3f8-d29464706c5b-600x400.jpeg" style="width:100%;height:100%;object-fit:cover;" alt="">
+              </div>
+              <div style="font-family:var(--serif);font-size:14px;font-weight:600;line-height:1.3;">Hungary veto on Ukraine and carbon market to hijack EU summit</div>
+              <div style="font-size:11px;color:var(--navy-50);margin-top:3px;">by Elena Sánchez Nicolás</div>
+            </div>
+            <div class="ad-halfpage">
+              <div class="ad-dim-label" style="font-size:11px;text-align:center;">300 × 600<br>Half page</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Newsletter mockup -->
+      <div class="nl-mockup">
+        <div class="nl-header">
+          <span class="nl-logo">EU<strong>observer</strong></span>
+          <span class="nl-tag">Morning Update · 26,000 subscribers · ~40% open rate</span>
+        </div>
+        <iframe id="newsletterFrame"
+          style="width:100%;border:none;display:block;height:600px;overflow-y:auto;"
+          title="EUobserver newsletter"></iframe>
+      </div>
+
+      <!-- Podcast embed -->
+      <div style="margin:16px 0;">
+        <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--navy-50);margin-bottom:10px;">Briefed — EUobserver · hosted by Léa Marchal</div>
+        <iframe title="Spotify Embed: Will the EU carbon market pay the price of the energy crisis?" style="border-radius:12px" width="100%" height="152" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" src="https://open.spotify.com/embed/episode/76LbHcjpqu4aYvmM03Ui4e?si=cd17944c3c62476d&utm_source=oembed"></iframe>
+        <div style="font-size:12px;color:var(--navy-50);margin-top:8px;">Pre-roll, mid-roll, or full episode sponsorship · custom pricing</div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="section-heading" style="margin-top:40px;">About our audience</div>
+    <div class="stats-strip">
+      <div class="stat-item"><div class="stat-num">450K+</div><div class="stat-label">Monthly visitors</div></div>
+      <div class="stat-item"><div class="stat-num">26K</div><div class="stat-label">Newsletter subscribers</div></div>
+      <div class="stat-item"><div class="stat-num">~40%</div><div class="stat-label">Newsletter open rate</div></div>
+      <div class="stat-item"><div class="stat-num">14K+</div><div class="stat-label">Cited in academic papers</div></div>
+      <div class="stat-item"><div class="stat-num">Top 10</div><div class="stat-label">Most influential in Brussels</div></div>
+    </div>
+
+    <!-- Demographics -->
+    <div class="demo-grid">
+      <div class="demo-card">
+        <h4>Reader geography (top countries)</h4>
+        <div class="bar-row"><span class="bar-label">Germany</span><div class="bar-track"><div class="bar-fill" data-w="94"></div></div><span class="bar-val">13.1%</span></div>
+        <div class="bar-row"><span class="bar-label">United States</span><div class="bar-track"><div class="bar-fill" data-w="89"></div></div><span class="bar-val">12.4%</span></div>
+        <div class="bar-row"><span class="bar-label">Netherlands</span><div class="bar-track"><div class="bar-fill" data-w="83"></div></div><span class="bar-val">11.6%</span></div>
+        <div class="bar-row"><span class="bar-label">China</span><div class="bar-track"><div class="bar-fill" data-w="47"></div></div><span class="bar-val">6.5%</span></div>
+        <div class="bar-row"><span class="bar-label">Finland</span><div class="bar-track"><div class="bar-fill" data-w="45"></div></div><span class="bar-val">6.3%</span></div>
+        <div class="bar-row"><span class="bar-label">Belgium</span><div class="bar-track"><div class="bar-fill" data-w="38"></div></div><span class="bar-val">5.3%</span></div>
+        <div class="bar-row"><span class="bar-label">United Kingdom</span><div class="bar-track"><div class="bar-fill" data-w="36"></div></div><span class="bar-val">5.0%</span></div>
+        <div class="bar-row"><span class="bar-label">Sweden</span><div class="bar-track"><div class="bar-fill" data-w="28"></div></div><span class="bar-val">3.9%</span></div>
+        <div class="bar-row"><span class="bar-label">Rest of World</span><div class="bar-track"><div class="bar-fill" data-w="63" style="background:var(--grey-3);"></div></div><span class="bar-val">8.7%</span></div>
+      </div>
+      <div class="demo-card">
+        <h4>Reader profile by occupation</h4>
+        <div class="occ-grid">
+          <div class="occ-row"><div class="occ-dot" style="background:#f0523c;"></div><span class="occ-label">Citizens / Individuals</span><span class="occ-val">44.7%</span></div>
+          <div class="occ-row"><div class="occ-dot" style="background:#e91e8c;"></div><span class="occ-label">Companies / Corporations</span><span class="occ-val">23.7%</span></div>
+          <div class="occ-row"><div class="occ-dot" style="background:#c084fc;"></div><span class="occ-label">Academic / Educational</span><span class="occ-val">10.5%</span></div>
+          <div class="occ-row"><div class="occ-dot" style="background:#7c3aed;"></div><span class="occ-label">EU Institutions</span><span class="occ-val">10.5%</span></div>
+          <div class="occ-row"><div class="occ-dot" style="background:#3b82f6;"></div><span class="occ-label">Government</span><span class="occ-val">6.6%</span></div>
+          <div class="occ-row"><div class="occ-dot" style="background:#06b6d4;"></div><span class="occ-label">Non-Profit / NGO</span><span class="occ-val">3.9%</span></div>
+        </div>
+        <p style="font-size:12px;color:var(--navy-50);margin-top:16px;line-height:1.5;">EU policymakers rank EUobserver among the <strong style="color:var(--navy);">top 10 most influential</strong> publications in Brussels — up 7 percentage points year-on-year.</p>
+      </div>
+    </div>
+
+    <!-- Lead form -->
+    <div class="form-section">
+      <div class="form-inner">
+        <h3>Interested? Let's talk.</h3>
+        <p>Leave your details and we'll reach out with a tailored proposal within 24 hours.</p>
+        <form id="leadForm" onsubmit="submitLead(event)">
+          <div class="form-row">
+            <div class="eo-field"><label>Name</label><input type="text" name="name" placeholder="Your name" required></div>
+            <div class="eo-field"><label>Organisation</label><input type="text" name="org" placeholder="Your organisation"></div>
+          </div>
+          <div class="form-row">
+            <div class="eo-field"><label>Email</label><input type="email" name="email" placeholder="your@email.com" required></div>
+            <div class="eo-field"><label>Phone (optional)</label><input type="tel" name="phone" placeholder="+1 555 000 0000"></div>
+          </div>
+          <div class="form-row">
+            <div class="eo-field" style="flex:1;"><label>Anything you'd like us to know?</label><input type="text" name="message" placeholder="Campaign dates, budget, questions…"></div>
+          </div>
+          <input type="hidden" name="goal" id="fGoal">
+          <input type="hidden" name="audience" id="fAudience">
+          <input type="hidden" name="budget" id="fBudget">
+          <input type="hidden" name="path" id="fPath">
+          <button type="submit" class="form-submit">Send my details</button>
+        </form>
+        <div class="form-msg" id="formMsg"></div>
+      </div>
+    </div>
+    <div class="contact-line">
+      Or email <a href="mailto:at@euobserver.com">at@euobserver.com</a> &nbsp;&middot;&nbsp;
+      <a href="tel:+31622570540">+31 6 225 70 540</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SCREEN: PRICE LIST ════════════════════════════════ -->
+<div class="screen" id="sPricelist">
+  <div class="result-screen">
+    <button class="back-btn" onclick="goTo(0)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to start
+    </button>
+    <h2 class="result-title">Full Price List 2026</h2>
+    <p class="result-intro">All prices in EUR, excluding VAT. Every package can be customised.</p>
+
+    <div class="pkg-tabs" data-ctx="pl">
+      <button class="pkg-tab active" onclick="switchProdTab('pl','stakeholder')">Stakeholder Content</button>
+      <button class="pkg-tab" onclick="switchProdTab('pl','banners')">Website Banners</button>
+      <button class="pkg-tab" onclick="switchProdTab('pl','newsletter')">Newsletter</button>
+      <button class="pkg-tab" onclick="switchProdTab('pl','magazine')">Magazine</button>
+      <button class="pkg-tab" onclick="switchProdTab('pl','multimedia')">Multimedia</button>
+    </div>
+    <div class="pkg-tab-panel active" data-ctx="pl" data-ptab="stakeholder">
+      <div class="pl-category"><h3>Stakeholder Content</h3>
+        <table class="price-table">
+          <tr><th>Product</th><th>Details</th><th style="text-align:right">Price</th></tr>
+          <tr><td>Stakeholder Article</td><td>Published on site + newsletter distribution + social promotion + search indexing</td><td class="price-val">€4,500</td></tr>
+          <tr><td>Writing Service (add-on)</td><td>EUobserver journalist writes from your brief, with feedback rounds included</td><td class="price-val">+€1,500</td></tr>
+          <tr><td>Magazine Stakeholder Article</td><td>Published in bi-yearly themed magazine — April or October edition</td><td class="price-val">€5,500</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="pkg-tab-panel" data-ctx="pl" data-ptab="banners">
+      <div class="pl-category"><h3>Website Banners</h3>
+        <table class="price-table">
+          <tr><th>Product</th><th>Details</th><th style="text-align:right">Price</th></tr>
+          <tr><td>Dynamic Banner</td><td>1 week · 150,000 impressions · Billboard (970×250), mobile billboard (320×100) &amp; medium rectangle (300×250)</td><td class="price-val">€2,400 /week</td></tr>
+          <tr><td>Half Page Banner</td><td>1 week · 50,000 impressions · Runs alongside article content · Desktop · 300×600</td><td class="price-val">€2,000 /week</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="pkg-tab-panel" data-ctx="pl" data-ptab="newsletter">
+      <div class="pl-category"><h3>Newsletter Advertising</h3>
+        <table class="price-table">
+          <tr><th>Product</th><th>Details</th><th style="text-align:right">Price</th></tr>
+          <tr><td>Text Ad</td><td>1 week (5 newsletters) · Short message + hyperlink · Ideal for events, announcements &amp; press releases</td><td class="price-val">€1,300 /week</td></tr>
+          <tr><td>Image Ad — Standard</td><td>1 week (5 newsletters) · 600×200 or 300×250 · Animated GIF supported</td><td class="price-val">€2,000 /week</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="pkg-tab-panel" data-ctx="pl" data-ptab="magazine">
+      <div class="pl-category"><h3>Magazine</h3>
+        <table class="price-table">
+          <tr><th>Product</th><th>Details</th><th style="text-align:right">Price</th></tr>
+          <tr><td>Inside Cover</td><td>Premium position, first page opened</td><td class="price-val">€4,500</td></tr>
+          <tr><td>Back Cover</td><td>High-visibility back page placement</td><td class="price-val">€5,000</td></tr>
+          <tr><td>Full Page A4</td><td>Full-page placement within the magazine</td><td class="price-val">€3,400</td></tr>
+          <tr><td>Double-Page Spread</td><td>2 × A4 — maximum visual impact</td><td class="price-val">€6,500</td></tr>
+          <tr><td>Themed Magazine</td><td>Custom-produced magazine on a topic of your choice; includes content + ad exclusivity</td><td class="price-val">from €25,000</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="pkg-tab-panel" data-ctx="pl" data-ptab="multimedia">
+      <div class="pl-category"><h3>Multimedia &amp; Custom</h3>
+        <table class="price-table">
+          <tr><th>Product</th><th>What you get</th><th style="text-align:right">Pricing</th></tr>
+          <tr><td>Event Livestream</td><td>Your event streamed live on EUobserver, with newsletter advertising and social posts to drive viewers</td><td class="price-val">Custom</td></tr>
+          <tr><td>Podcast Advertising</td><td>Ad on EUobserver's Briefed podcast (host Léa Marchal) · host-read or 30-second produced spot</td><td class="price-val">Custom</td></tr>
+          <tr><td>Newsletter Network</td><td>Extend newsletter ad reach through The European Correspondent's newsletter network</td><td class="price-val">Custom</td></tr>
+          <tr><td>Video Production</td><td>Short documentary series produced by EUobserver's network of video journalists</td><td class="price-val">Custom</td></tr>
+          <tr><td>Custom Webinar</td><td>EUobserver-hosted online panel on a topic of your choosing. Includes one partner panellist. Editorially independent.</td><td class="price-val">Custom</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin:32px 0;">
+      <button class="eo-btn eo-btn--orange" onclick="goTo(1)">Find my format&ensp;&rarr;</button>
+    </div>
+
+    <div class="form-section">
+      <div class="form-inner">
+        <h3>Want a custom quote?</h3>
+        <p>Tell us what you need and we'll put something together.</p>
+        <form onsubmit="submitLead(event)">
+          <div class="form-row">
+            <div class="eo-field"><label>Name</label><input type="text" name="name" placeholder="Your name" required></div>
+            <div class="eo-field"><label>Organisation</label><input type="text" name="org" placeholder="Your organisation"></div>
+          </div>
+          <div class="form-row">
+            <div class="eo-field" style="flex:1;"><label>Email</label><input type="email" name="email" placeholder="your@email.com" required></div>
+          </div>
+          <div class="form-row">
+            <div class="eo-field" style="flex:1;"><label>What are you looking for?</label><input type="text" name="message" placeholder="Products, dates, budget…"></div>
+          </div>
+          <input type="hidden" name="goal" value="pricelist_direct">
+          <input type="hidden" name="audience" value="">
+          <input type="hidden" name="budget" value="">
+          <input type="hidden" name="path" value="direct_to_pricelist">
+          <button type="submit" class="form-submit">Send my details</button>
+        </form>
+        <div class="form-msg" id="formMsg2"></div>
+      </div>
+    </div>
+    <div class="contact-line">
+      <a href="mailto:at@euobserver.com">at@euobserver.com</a> &nbsp;&middot;&nbsp;
+      <a href="tel:+31622570540">+31 6 225 70 540</a>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ── STATE ─────────────────────────────────────── */
+const C = { goal: '', audience: [], budget: '' };
+let cur = 's0';
+
+function choose(k, v) { C[k] = v; }
+
+function toggleAud(el, v) {
+  const i = C.audience.indexOf(v);
+  if (i === -1) C.audience.push(v);
+  else           C.audience.splice(i, 1);
+  el.classList.toggle('selected', C.audience.includes(v));
+  const btn = document.getElementById('audNextBtn');
+  if (C.audience.length > 0) {
+    btn.style.opacity = '1'; btn.style.pointerEvents = 'auto';
+  } else {
+    btn.style.opacity = '0.4'; btn.style.pointerEvents = 'none';
+  }
+}
+
+function audNext() {
+  if (C.audience.length === 0) return;
+  goTo(3);
+}
+
+/* ── NAVIGATION ─────────────────────────────────── */
+function goTo(t) {
+  const prev = document.getElementById(cur);
+  if (prev) { prev.classList.remove('visible'); setTimeout(() => prev.classList.remove('active'), 400); }
+  let id;
+  if      (t === 'pricelist') id = 'sPricelist';
+  else if (t === 'result')    { id = 'sResult'; buildResult(); }
+  else                        id = 's' + t;
+  cur = id;
+  const el = document.getElementById(id);
+  setTimeout(() => {
+    el.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('visible')));
+    animateBars();
+  }, 220);
+  const pct = (t === 'pricelist' || t === 'result') ? 100 : typeof t === 'number' ? (t / 4) * 100 : 0;
+  document.getElementById('progressBar').style.width = pct + '%';
+  trackEvent('screen', String(t));
+  const fg = document.getElementById('fGoal');    if (fg) fg.value = C.goal;
+  const fa = document.getElementById('fAudience'); if (fa) fa.value = C.audience.join(', ');
+  const fb = document.getElementById('fBudget');  if (fb) fb.value = C.budget;
+  const fp = document.getElementById('fPath');    if (fp) fp.value = `${C.goal} > ${C.audience.join('+')} > ${C.budget}`;
+}
+
+/* ── BAR ANIMATION ──────────────────────────────── */
+function animateBars() {
+  setTimeout(() => {
+    document.querySelectorAll('.bar-fill[data-w]').forEach(el => {
+      el.style.width = el.dataset.w + '%';
+    });
+  }, 100);
+}
+
+/* ── PACKAGES DATA ──────────────────────────────── */
+const PACKAGES = {
+  awareness: {
+    name: 'Campaign Awareness Package',
+    price: '€10,000',
+    priceNote: 'package price',
+    totalValue: 'Total individual value: €10,900',
+    copy: "EUobserver gives you concentrated reach into a highly engaged Brussels audience: 450,000+ monthly visitors who are already self-selected for EU affairs. Unlike broad digital advertising, you are not paying to interrupt people with no interest in your issue — our readers are the EU affairs community, and they spend real time on the site. Banner placements run alongside our editorial content, meaning your brand benefits from the credibility and attention our readers already bring.",
+    items: [
+      { name: 'Dynamic Banner', desc: '1 week · 150,000 impressions · Billboard, mobile billboard & medium rectangle', price: '€2,400' },
+      { name: 'Half Page Banner', desc: '1 week · 50,000 impressions · 300×600 alongside article content', price: '€2,000' },
+      { name: 'Image Newsletter Ad', desc: '1 week (5 newsletters) · 600×200px · sent Mon–Fri at 7:30am to 26,000 subscribers', price: '€2,000' },
+      { name: 'Stakeholder Article', desc: 'Published on site + newsletter distribution + social promotion + search indexing', price: '€4,500' },
+    ]
+  },
+  thought: {
+    name: 'Thought Leadership Package',
+    price: '€9,000',
+    priceNote: 'package price · valid 12 months',
+    totalValue: 'Total individual value: €10,000',
+    copy: "EUobserver's stakeholder content offers something conventional advertising cannot: direct association with trusted, editorially independent journalism. A stakeholder article written in the style and quality of EUobserver editorial, clearly marked as stakeholder content, sits permanently on the site, is distributed via newsletter and social media, and is discoverable through search for years after publication. Repeat publishing provides search engines with a powerful signal of authority — search for our existing contributors and you'll find EUobserver appearing in results with dedicated author bios.",
+    items: [
+      { name: 'Stakeholder Article × 2', desc: 'Published on site + newsletter distribution + social promotion + search indexing (x2 over 12 months)', price: '€4,500 each' },
+      { name: 'Writing Service (optional)', desc: 'EUobserver journalist writes from your brief, with feedback rounds', price: '+€1,500 each' },
+      { name: 'LinkedIn push × 2', desc: 'Promoted on EUobserver LinkedIn (20K followers), tagging author and organisation', price: '€500 each' },
+    ]
+  },
+  policy: {
+    name: 'Policy Influence Package',
+    price: '€8,000',
+    priceNote: 'package price',
+    totalValue: 'Total individual value: €8,700',
+    copy: "To move the needle on a legislative debate, you need to reach the people inside and around the institutions — and reach them in the right context. EUobserver is where that audience already goes. Our readers are MEPs, Commission officials, think tank researchers, and the policy advisers who feed into legislative processes. A well-placed stakeholder article positions your perspective directly alongside EUobserver's editorial reporting — evergreen, searchable, and distributed via newsletter to 26,000 subscribers. Timed to a key legislative moment, it creates a record of your position at the precise point when it counts.",
+    items: [
+      { name: 'Stakeholder Article', desc: 'Published on site + newsletter distribution + social promotion + search indexing', price: '€4,500' },
+      { name: 'Writing Service (optional)', desc: 'EUobserver journalist writes from your brief, with feedback rounds', price: '+€1,500' },
+      { name: 'Dynamic Banner — 1 week', desc: '150,000 impressions across all article pages', price: '€2,400' },
+      { name: 'Newsletter Text Ad — 1 week', desc: '5 newsletters · short message + hyperlink', price: '€1,300' },
+      { name: 'LinkedIn push', desc: 'Timed to a legislative moment — promoted on EUobserver LinkedIn (20K followers)', price: '€500' },
+    ]
+  },
+  event: {
+    name: 'Event Promotion Package',
+    price: '€6,000–€10,000',
+    priceNote: 'depending on options',
+    totalValue: 'Individual value: €6,400–€12,400',
+    copy: "EUobserver's newsletter is the most direct route to the EU affairs community. 26,000 subscribers receive it every weekday at 7:30am — at the moment they are reviewing their agenda. A newsletter ad drives immediate clickthrough to your registration page at a cost per lead that typically outperforms other digital channels in this space. For events with a longer lead time, a banner campaign in the weeks beforehand builds awareness and familiarity before the ask.",
+    items: [
+      { name: 'Newsletter Image Ad — 2 weeks', desc: '10 newsletters · 600×200px · highest CTR for event promotions', price: '€2,000 /week' },
+      { name: 'Dynamic Banner — 1 week', desc: 'Pre-event visibility · 150,000 impressions', price: '€2,400' },
+      { name: 'Event Livestream (optional)', desc: 'Your event streamed on EUobserver, includes newsletter push + social posts on the day', price: '€6,000' },
+    ]
+  }
+};
+
+const PACKAGES_STARTER = {
+  awareness: {
+    name: 'Newsletter Image Ad',
+    price: '€2,000',
+    priceNote: 'per week',
+    totalValue: 'Entry point for campaign awareness',
+    copy: "The EUobserver newsletter reaches 26,000 subscribers every weekday at 7:30am — civil society professionals, policy researchers, MEPs, and engaged citizens who make up the EU affairs community's first read of the day. A newsletter image ad drops your message directly into that stream, alongside the day's editorial. One week (5 sends) is enough to test the channel and see what your content generates.",
+    items: [
+      { name: 'Newsletter Image Ad — 1 week', desc: '5 newsletters · 600×200px · animated GIF supported · sent Mon–Fri at 7:30am', price: '€2,000' },
+      { name: 'Newsletter Text Ad — 1 week (alternative)', desc: 'Short message + hyperlink · lower cost, strong CTR for direct response', price: '€1,300' },
+    ]
+  },
+  thought: {
+    name: 'Stakeholder Article',
+    price: '€4,500',
+    priceNote: 'one-time',
+    totalValue: 'Starting point for thought leadership',
+    copy: "A single stakeholder article on EUobserver is the most cost-effective way to establish a voice in the Brussels policy conversation. Published alongside EUobserver's editorial content, distributed via newsletter to 26,000 subscribers, promoted on LinkedIn, and indexed for search — it keeps working long after the day it's published. If you want EUobserver to write it, the optional writing service adds €1,500.",
+    items: [
+      { name: 'Stakeholder Article', desc: 'Published on site + newsletter distribution + social promotion + search indexing', price: '€4,500' },
+      { name: 'Writing Service (optional add-on)', desc: 'EUobserver journalist writes from your brief, with feedback rounds', price: '+€1,500' },
+    ]
+  },
+  policy: {
+    name: 'Stakeholder Article',
+    price: '€4,500',
+    priceNote: 'one-time',
+    totalValue: 'Entry point for policy influence',
+    copy: "A well-placed stakeholder article is the most direct way to put your position in front of the people who shape the debate. Published alongside EUobserver's editorial reporting, distributed to 26,000 newsletter subscribers, and promoted on social — timed to a committee vote, consultation deadline, or report launch, it creates a permanent, searchable record of your position at the precise moment it counts. If you want EUobserver to write it, the optional writing service adds €1,500.",
+    items: [
+      { name: 'Stakeholder Article', desc: 'Published on site + newsletter distribution + social promotion + search indexing', price: '€4,500' },
+      { name: 'Writing Service (optional add-on)', desc: 'EUobserver journalist writes from your brief, with feedback rounds', price: '+€1,500' },
+    ]
+  },
+  event: {
+    name: 'Newsletter Image Ad',
+    price: '€2,000',
+    priceNote: 'per week',
+    totalValue: 'Entry point for event promotion',
+    copy: "For event promotion, the newsletter is the most direct channel available. 26,000 subscribers receive it every weekday at 7:30am — at the moment they are reviewing their agenda. A newsletter image ad drives immediate clickthrough to your registration page, in front of exactly the EU affairs audience you need. One week (5 sends) is typically enough to move the needle on registrations, and it's easy to add a second week as the event approaches.",
+    items: [
+      { name: 'Newsletter Image Ad — 1 week', desc: '5 newsletters · 600×200px · animated GIF supported · highest CTR for event promotions', price: '€2,000' },
+      { name: 'Newsletter Text Ad — 1 week (alternative)', desc: 'Short message + hyperlink · lower cost, strong direct response', price: '€1,300' },
+    ]
+  }
+};
+
+const CASES = {
+  awareness: {
+    label: 'Case example — Campaign Awareness',
+    title: 'European Movement International — realdeal.eu',
+    body: "European Movement International used EUobserver's newsletter to drive awareness of realdeal.eu, their campaign placing people at the heart of the green transition. Over two weeks in January 2025, they ran a combination of newsletter text ads and newsletter image ads — ten newsletters in total, sent to just over 26,000 subscribers each time, with a consistent open rate of around 40%. The campaign delivered hundreds of clicks to the realdeal.eu campaign site — a sustained daily flow of highly relevant traffic from civil society professionals, policy researchers, and engaged citizens who make up EUobserver's newsletter audience."
+  },
+  thought: {
+    label: 'Case example — Thought Leadership',
+    title: 'Ulf Larsson, CEO, Svenska Cellulosa Aktiebolaget (SCA)',
+    body: "Ulf Larsson has published four stakeholder articles on EUobserver over the past two years, each addressing a specific gap in EU bioeconomy and forest policy. The articles are substantive policy interventions, written in EUobserver's editorial style, making the case that the EU is systematically undervaluing the forest sector in its own climate and circular economy frameworks. Published on the platform read by the commission officials and MEPs who write those frameworks, they reach the right people at the right time. Search for Larsson today and EUobserver appears in the results with a dedicated author bio — a permanent, searchable, credible record of his expertise in the EU policy conversation, built through content rather than advertising spend."
+  },
+  policy: {
+    label: 'Case example — Policy Influence',
+    title: 'European Parliament political group',
+    body: "A major European Parliament political group used EUobserver stakeholder articles to shape three separate policy debates across a single parliamentary term — consumer rights, the social leasing model for electric vehicles, and the EU definition of sexual violence. Each article was published to coincide with the relevant legislative moment: a committee debate, a plenary vote, a council negotiation. The group also ran a dynamic banner campaign alongside the articles to promote related parliamentary events, generating over 320,000 impressions over 19 days. The combination of content and display gave them sustained presence on EUobserver across the period — the publication read by the MEPs, Commission officials, and civil society organisations their arguments were directed at."
+  },
+  event: {
+    label: 'Case example — Event Promotion',
+    title: 'NECSTouR — Knowledge Day, Lanzarote',
+    body: "NECSTouR (the Network of European Regions for Competitive and Sustainable Tourism) used a stakeholder article on EUobserver to build anticipation for their 2025 Knowledge Day in Lanzarote — a landmark event marking the 30th anniversary of the World Charter for Sustainable Tourism. The article framed the event not as a conference notice but as a substantive policy moment: the gathering of European regions to develop a credible governance framework for sustainable tourism ahead of the European Commission's incoming European Tourism Strategy. It reached EUobserver's readership of EU officials, regional policymakers, and civil society professionals — exactly the people NECSTouR needed to engage."
+  }
+};
+
+/* ── BUILD RESULT ───────────────────────────────── */
+function buildPkgCard(pkg) {
+  const itemsHtml = pkg.items.map(it => `
+    <li class="pkg-item">
+      <div><div class="pkg-item-name">${it.name}</div><div class="pkg-item-desc">${it.desc}</div></div>
+      <div class="pkg-item-price">${it.price}</div>
+    </li>`).join('');
+  return `
+    <div class="pkg-card" style="margin-bottom:24px;">
+      <div class="pkg-header">
+        <div class="pkg-name">${pkg.name}</div>
+        <div><div class="pkg-price">${pkg.price}</div><div class="pkg-price-note">${pkg.priceNote}</div></div>
+      </div>
+      <div class="pkg-body">
+        <p class="pkg-copy">${pkg.copy}</p>
+        <ul class="pkg-items">${itemsHtml}</ul>
+        <div class="pkg-value-row"><span>${pkg.totalValue}</span><button class="eo-btn eo-btn--outline" style="height:34px;padding:0 18px;font-size:13px;" onclick="goTo('pricelist')">Full price list</button></div>
+      </div>
+    </div>`;
+}
+
+function buildResult() {
+  const goal = C.goal || 'awareness';
+  const showAll = (goal === 'all');
+
+  if (showAll) {
+    document.getElementById('resultBadge').textContent = 'Everything we offer';
+    document.getElementById('resultTitle').textContent = 'Here\'s what you can do on EUobserver';
+    document.getElementById('resultIntro').textContent = 'Four packages, each built for a different goal. Click through to find what fits — everything can be mixed, matched, and adjusted.';
+
+    const tabs = [
+      { key:'awareness', label:'Campaign Awareness' },
+      { key:'thought',   label:'Thought Leadership' },
+      { key:'policy',    label:'Policy Influence' },
+      { key:'event',     label:'Event Promotion' },
+    ];
+    let tabBar = '<div class="pkg-tabs">';
+    let panels = '';
+    tabs.forEach((t, i) => {
+      tabBar += `<button class="pkg-tab${i===0?' active':''}" onclick="switchTab('${t.key}')">${t.label}</button>`;
+      const cs = CASES[t.key];
+      panels += `<div class="pkg-tab-panel${i===0?' active':''}" data-tab="${t.key}">
+        ${buildPkgCard(PACKAGES[t.key])}
+        <div class="case-study">
+          <div class="case-label">${cs.label}</div>
+          <div class="case-title">${cs.title}</div>
+          <div class="case-body">${cs.body}</div>
+        </div>
+      </div>`;
+    });
+    tabBar += '</div>';
+    document.getElementById('resultPackages').innerHTML = tabBar + panels;
+    document.getElementById('resultCase').innerHTML = '';
+  } else {
+    const isStarter = (C.budget === 'starter');
+    const pkg = isStarter ? PACKAGES_STARTER[goal] : PACKAGES[goal];
+    const cs  = CASES[goal];
+    document.getElementById('resultBadge').textContent = isStarter ? 'Entry point' : pkg.name;
+    document.getElementById('resultTitle').textContent = isStarter ? 'Here\'s where to start' : 'Here\'s what we\'d suggest';
+    document.getElementById('resultIntro').textContent = isStarter
+      ? 'For a budget under €5,000 — here\'s the single product that gives you the best entry point for your goal. Everything can be scaled up from here.'
+      : 'Based on your goals — here\'s the package we\'d recommend. Everything can be adjusted to fit your timeline and budget.';
+    document.getElementById('resultPackages').innerHTML = buildPkgCard(pkg);
+    document.getElementById('resultCase').innerHTML = `
+      <div class="case-study">
+        <div class="case-label">${cs.label}</div>
+        <div class="case-title">${cs.title}</div>
+        <div class="case-body">${cs.body}</div>
+      </div>`;
+  }
+}
+
+
+/* ── NEWSLETTER IFRAME ───────────────────────────── */
+const NL_HTML = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>EUobserver Daily</title>
+	<style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #444;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        img {
+            border: 0;
+            height: auto;
+            line-height: 100%;
+            outline: none;
+            text-decoration: none;
+            display: block;
+        }
+
+        p {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            line-height: 20px;
+            color: #000020;
+        }
+      		ul,li {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif!important;
+            font-size: 14px!important;
+            line-height: 20px!important;
+            color: #000020!important;
+        }
+
+        /* iOS BLUE LINKS */
+        a[x-apple-data-detectors] {
+            color: #000020 !important;
+            text-decoration: inherit;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+
+        /* GMAIL BLUE LINKS */
+        u + #body a {
+            color: #000020;
+            text-decoration: inherit;
+            font-size: inherit;
+            font-family: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+        }
+
+        /* SAMSUNG MAIL BLUE LINKS */
+        #MessageViewBody a {
+            color: #000020;
+            text-decoration: inherit;
+            font-size: inherit;
+            font-family: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+        }
+
+        /* These rules set the link and hover states, making it clear that links are, in fact, links. */
+        /* Embrace established conventions like underlines on links to keep emails accessible. */
+        a {
+            text-decoration: underline;
+            color: #000020;
+        }
+      
+	</style>
+</head>
+<body style="margin:0; padding:0; background-color:#ffffff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+
+<!--   Preheader BEGIN-->
+<!--
+<div style="display:none;font-size:1px;color:#000;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">
+	&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+</div>
+-->
+<!--   Preheader END-->
+
+<!--   Header BEGIN-->
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td align="center" style="background-color: #1d2732;">
+			<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:600px; background-color:#ffffff; margin: 0 auto;">
+				<tr>
+					<td>
+						<table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #1d2732;">
+							<tr>
+								<td style="width: 8px;">&nbsp;</td>
+								<td align="left">
+									<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td align="left" style="padding: 10px 0;">
+												<table role="presentation" align="left" border="0" cellspacing="0" cellpadding="0">
+													<tr>
+														<td align="center" bgcolor="#F0523C" style="border-radius: 10px; padding: 12px 18px;">
+															<a href="https://email.mgeu.euobserver.com/c/eJxsUMuOozAQ_Br7tpEf2MDBh11F_IZl2p3gXQzINNmZvx85ymSkKNeuqq7HGAgmn6IzhsO6EH6Qw2Mddyw3LL9iSPPnSQllhZYdj84A2pajk22reyG7ruGTkzJGgX1jJASJ9tJGaAE6qRGFjaB5cgXz5nNIMxbfQmM6cRH--USzRuQrHqcf6xOsmf9dx3s2yWc3EW0707-ZGpgaAsB6LPQiYGrImEcs-5Q2podC2cOc4B_TZzOGPmoZmbL1vK9HAWT6_Nr2gWeM6cgVr6kfRwh5C-m6MH2-c31Oy0HoZS-0st-kOuNC1dLwKvY7LhFLbWJNO1ro-mdzxYsLxNSf_zjDmpFwJ9aIlx3IvbHjhHmbA-Fb8ObUVwAAAP__suOeLg"
+															   target="_blank"
+															   style="color: #ffffff; font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; text-decoration: none; display: inline-block;">
+																Support us
+															</a>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td align="right">
+									<img src="https://static.euobserver.com/2026/01/euobserver_daily.png" width="180" class="logo-img" alt="EUobserver">
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<!--   Header END-->
+
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+	<tr style="height: 24px">
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td align="center" style="background-color: #ffffff;">
+			<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:600px;margin: 0 auto; border-radius:0 0 10px 10px">
+				<tr>
+                    <td width="12"></td>
+					<td width="576" align="left">
+                        
+                        <!-- core/group -->
+<div style="background-color: rgb(241, 241, 241);padding: 12px; border-radius: 10px;margin-bottom: 24px;">
+    <!-- core/heading -->
+<h2 style="font-size: 24px; color: #f0523c;">Good morning.</h2>
+<!-- end core/heading --><p style="">A <a href="https://email.mgeu.euobserver.com/c/eJxskMGOnDAQRL_GvjEybgyegw-JRvwGMk3PjDc0RnazSf4-YrXZKKu9dpWrXG-Ogs8pLcE5jXkT-iWBjjxXKq9UmiWm9ffFGtsbaL1egkPqB02hHQa4mtb7Tj8DRjIR7maGLiKi8Rbs4gYLcO1huZNOoRDvE8e0UpkG7Jw3dzN9hIDqDD_ouPyrvmBm_ZLnt7-1eg1Pkb0q-KbsqOz4v1HZ0Zqh80bZkeNLLg1xqjXlrTZS4pK2R3NPj6c0a85cmygNHU09mJOceTAW4QnXhD8U3EwP1jv0yvbnueajICm4febyrjMt6eBTP_e9HzHyHtNjU3B7806ctkNoaq8GbP_XdALfRMHNOX0-niptC5Vzc--GuUd__WBkdQlRlP3-k1bMTEJVVGc-EZPwRZ0W4n2NQl-Kr8H-CQAA__8vR6sy">big fight</a> about the EU's carbon pricing system is set to take place at the EU leaders' summit in Brussels on Thursday (19 March). After almost three weeks of war and the Strait of Hormuz still closed, oil prices in the Gulf skyrocketed to above <a href="https://email.mgeu.euobserver.com/c/eJxs0M2OnTAMBeCnSXagxPllkUWrEU_QfRQSM9ASQMF36Lx9de9iKlVd27K_c6ZEeYlrCcbwfOyEvyng45gubB_YupLW7bMHAVYo6XkJJqN1HIN0Tg1Ceq_5EiAZU4TArJ2H5NKU58FpDzP4JJ11fA0N6xlrWjds0WVtvJhF_DqimBb1HR_939d9Pir_eUwvm-RbWIjOi6lvDEYG433f_UzPJQbjC74Tg1GBkMYW3UHWqtNDVl0SwnQ4ZDvLoieNmqnxWlLDH58nMvW2H_v7OhMD26jGvK35F1NvRepBqjTxpzleuBdsT4o1brLZD1904C0kYvD9xi0fFQkvYlr8E4TCq8lY1_1BGOUgFFhOWM8tEf53-BHgTwAAAP__Q-KCWA">$170</a> [€150] this week, and with no end in sight, fears for a wider energy shock are rising, once again.</p><p style="">This fear is being used as an argument by some to weaken or “suspend” the EU's Emissions Trading System [ETS]. </p><p style="">In a letter addressed to council president Antonio Costa and EU Commission president Ursula von der Leyen, ten member states said that the current ETS timeline is "overly ambitious."</p><p style="">Echoing earlier <a href="https://email.mgeu.euobserver.com/c/eJxskdtu3CAYhJ8G7lhhDja-4KLVyq9hcfh3TWPMCn4n3beviNJUjXI7MzDDh3cYtjVFqzUN5UD4jRbO4hvUV6gsurQ_L4KLkcvB0Gh1gHGiYIdpkjMfjFF0s0ZKLo0OwnjlDYdpuN2UN95rNUs1R5pshfxYs0s71HUKSht-4-vnJZIonu9wXv5VX0LJ9Ffx79sGutsN8dGI_EHEQsTyf5CIRfBRKEXEUssbK307nAxyai2VozGsLqbjzlxj6Yhnw_pkW8LGvAsvzCELG-QU3M724v2zl8ilYl7DnsILkVc_y1EYE4kYu9zKWQMQef0K68PPENOZu98f_SEGlx8u3Q8ir-_ZNafjRFiHmUsx_g31XziQyKvWtB9eGxwRagcx6smPwcyf4ASt1iERP99gDyUDQkOi-BeMaL-powj5sTuEb81XK_4EAAD__zu1soU">calls</a> from the chemical lobbyist Cefic and US oil giants ExxonMobil, these countries want to extend free emission allowances beyond 2034 and “smooth” the phase-out set to begin in 2028. </p><p style="">The group includes Austria, Greece, Italy, Slovakia, the Czech Republic, Poland, Hungary, Croatia, Romania and Bulgaria.</p><p style="">But the letter was heavily criticised by a senior diplomat representing a pro-ETS country on Wednesday. “The ETS is the best way to become less dependent on fossil fuels,” said the diplomat who requested to remain anonymous.</p><p style="">“The last thing we should do now is change our plan and become more dependent on fossil fuels again by delaying ETS,” the diplomat added. “The shortest-term thing member states can do in terms of the electricity price is reduce tariffs and levies,” he also said. “That would have an immediate effect on prices.”</p><p style="">When asked whether an agreement was expected, another diplomat said: “There are two schools of thought, and I don’t think these two views will be united [at the summit].”</p><p style=""><em>Wester van Gaal, economy editor</em></p>
+</div>
+<!-- end core/group -->
+<!-- core/group -->
+<div style="background-color: #ffffff;padding: 12px; border-radius: 10px;margin-bottom: 24px;">
+    <p style="text-align: right; color: rgba(127, 127, 127, 50%);">ADVERT</p><!-- core/image -->
+    <a href="https://email.mgeu.euobserver.com/c/eJxs0L1u7CAQBeCngc4WP8bgguJeJS7zCgjDeJfEGAuPd5O3j7zFRorSjTSjcz7N5DFcXYpWKRrKivCJFo4y7VBvUJvo0_LVCiZ6Jrmh0aoAvaZgudZyYNyYjl4tN1rzGLteDyYyFYycZsUZ4908d9wImmyFvLns0wLV6dApw2bmniGSdCxf4Gh_qttQMn0v08PG6WKviNtO5D8iRiJGHzCVtb1DLjdo4SBi3NNlJWIUTKiGi2YtTYStVPTnZbMBpsfw-nYmyLFidmFJ4YPIl5n33Ogw0VPodlgj1LO4V3rqgxmeUEGr9UjE_zssoWRA2JF07Bcb7eNvLqf1QHB8YFL0FCFvi0f4c3mz4jsAAP__XkF-Sg" target="_blank" style="display: block; border: none; margin: 0; padding: 0; text-decoration: none;">        <img src="https://static.euobserver.com/2026/03/Email-banner-600x200-@2x.jpg" width="600" style="width: 100%; max-width: 600; height: auto; display: block; border-radius: 10px;"
+                     >
+    </a><!-- end core/image -->
+
+</div>
+<!-- end core/group -->
+<!-- core/group -->
+<div style="background-color: rgb(228, 77, 57, 20%);padding: 12px; border-radius: 10px;margin-bottom: 24px;">
+    <!-- core/heading -->
+<h2 style="font-size: 24px; color: #f0523c;">Top story</h2>
+<!-- end core/heading --><!-- eo/post -->
+<div>
+    <!-- core/image -->
+            <img src="https://static.euobserver.com/2025/04/c2d6ccc6-226a-4fb3-b80c-ab07f9519a5a-aa3b62c6-8db1-40ae-8bbf-85502d07778c-5261f3e9-71bd-4bb3-a3f8-d29464706c5b-1200x800.jpeg" width="570" style="width: 100%; max-width: 570px; height: auto; display: block; border-radius: 10px;"
+                     >
+    <!-- end core/image -->
+<!-- core/heading -->
+<h3 style="font-size: 16px; color: #32353a;"><a href="https://email.mgeu.euobserver.com/c/eJxskMGO2yAYhJ8GbkQYMJgDh1aRX8PC-E_MxoCFf9Lu21eOtlt1tdeZYYb_mz2GdYqL63saSkb4jQ5amQ-oT6hs8XF7vwguNJfdQBfXB9CGguuMkZZ3w6Do6oBzKzgMapbBGj_om15MZxWfVRBGzTS6Cmmfko8b1MkE1Q_8xqfPEkkUT3dol3_Tl1ASfSvz628d3dyKuB9E_iBiJGL8P0jEKLhRVhIxri3ffX1nT8DCSmbtUX3MwHxeWPB1LpklXx-ADAtb45sPDwaNHS2liGe5HCumKWwxPIi8grbh1ltNhD7lo7Qa4NS_QPrwEyyxpdM_j_0Qg0-7j_dM5PWVnVLMDWHqLJfib_OLfkYir31Pz8fTAXmBegLQvZl1GOwnMEGr80jEz1-whZIA4UCi-Bd86L6Zowhp3zzCt-bTiT8BAAD__25ir5Y">Hungary veto on Ukraine and carbon market to hijack EU summit </a></h3>
+<!-- end core/heading --><p style="">Hungary’s veto on Ukraine money is to hijack the spotlight at Thursday’s EU summit in Brussels, alongside disagreements over Europe’s carbon market — overshadowing what was meant to be a key debate on turning Europe into a truly economic powerhouse.</p>
+</div>
+<!-- -->
+
+</div>
+<!-- end core/group -->
+<!-- core/group -->
+<div style="background-color: #ffffff;padding: 12px; border-radius: 10px;margin-bottom: 24px;">
+    <!-- core/heading -->
+<h2 style="font-size: 24px; color: #f0523c;">What else you need to know</h2>
+<!-- end core/heading --><!-- eo/post -->
+<div>
+    <!-- core/image -->
+            <img src="https://static.euobserver.com/2026/02/P-069136_00-02_01-ORIGINAL-682590-1200x800.jpg" width="570" style="width: 100%; max-width: 570px; height: auto; display: block; border-radius: 10px;"
+                     >
+    <!-- end core/image -->
+<!-- core/heading -->
+<h3 style="font-size: 16px; color: #32353a;"><a href="https://email.mgeu.euobserver.com/c/eJxskMuOGyEQRb8Gdlg8mqa9YJHI8m-0eFTbJDwsqPYkfx-1NZkoo9nWuVRxj3cY7muKVmsaWkX4hRb25gf0J3QWXcq_T5LLmSux0Gh1gNlQsMIYdeZiWSZ6t3HiwnFpNm1AGed8EGclQCiptXBO02Q7lMdaXMrQVxMmvfCNrx9LFJl4ucF--nf6FFqhP5p__U3QbO-Ij0HUNyKvRF7_DxJ5ldxMs3gRttcnpDyYXPDOOtxSARY6OEz1xnxugb2lCMzvI1UYg4UW4Virrh3LGnIKP4m6bHLz02YEkfMxHm3vAYi6fNbzzgvEtJeDHzXfh8GVh0u3StTllV1LqjvCKs5cyflv6PBekaiL1vR4vA6oEfpRfdbGz2E5f6iStFuHRH5_gxxaAYSBZOKfxKH94hxFKI_sEL6ETyv_BAAA___r6K0r">EU unveils ’28th regime’, creating  bloc-wide business code</a></h3>
+<!-- end core/heading --><p style="">The so-called ’28th regime’ is intended to create a single European business code applicable across the EU.</p>
+</div>
+<!-- -->
+<!-- eo/post -->
+<div>
+    <!-- core/image -->
+            <img src="https://static.euobserver.com/2026/03/6e83739b-e643-4220-acea-80ae24527664-1200x800.jpg" width="570" style="width: 100%; max-width: 570px; height: auto; display: block; border-radius: 10px;"
+                     >
+    <!-- end core/image -->
+<!-- core/heading -->
+<h3 style="font-size: 16px; color: #32353a;"><a href="https://email.mgeu.euobserver.com/c/eJxskEFv3CAUhH8N3FhhMMZ74NBq5b9h4cfbLIkBC57T5t9XVGmqRLm-GWaYb_MEjzUGZwyHkgl_k8OzbA3rK1YRfNzfLkqqSeph5sEZwMlydIO1-iqHeR75w213P3lrpdymMKPS9hrMZnDGwYPUI_DoKqZjTT7uWFcLo5nlXa4fIZqNMj3heflffYGS-HPZ_v5t4Lt7EB2N6R9MLUwtn41MLUpaI2emFng76tnEXspLE1QEnuK5xEwi4B0zoPApBpE9FdGOPZIoWcTqc8_VS6W0wh7hhelbUMMdBhiZmvq5lbMCMn37yuddTxjimbred74fwafDx6fc47p3TTGfhOtwlVpN_0wdfCamb8bw_nhtmAPWvn0ydptgvn6wUrw6T0z9_IU7lISEjdgov5Aj900dJ0zH7gm_FV-d-hMAAP__Bk2uYQ">Cyprus looks to EU joint-defence, amid Nato split on Iran</a></h3>
+<!-- end core/heading --><p style="">“We … gave flesh and bones to the [EU’s] mutual assistance clause,” Cypriot president said, after France and others sent warships to protect the island, which is a member of the EU but not Nato.</p>
+</div>
+<!-- -->
+<!-- eo/post -->
+<div>
+    <!-- core/image -->
+            <img src="https://static.euobserver.com/2024/11/dccca74f-e9ce-4836-a5b8-c17c037c90a3-ac2c75c8-85fd-4016-a724-5a46b6268503-ce3cb6d5-1de8-469f-894f-2e444756dee4-1200x800.jpeg" width="570" style="width: 100%; max-width: 570px; height: auto; display: block; border-radius: 10px;"
+                     >
+    <!-- end core/image -->
+<!-- core/heading -->
+<h3 style="font-size: 16px; color: #32353a;"><a href="https://email.mgeu.euobserver.com/c/eJxskM2O3CAQhJ8Gbh5hMD8-cEg08msgjNszbNzGgvYmefvIq81GWe21q6iivjlSeoa8eK15KjvBL_JwlrlBfYXaLTFvv29SSCNU7_jidQJjOfjeWjWK3rmBP73rnTEgV5UkJFDjakZjem1X4UYH0fLsK-ARMOYNarBp0E6sInyEKDYIfMB5-1d9SwX5S5nf_tbzzT-JjsbUNyYnJqf_jUxOUtjBCSYnjC-ldoC5tVz21lGNS94f3ZofT-q2UrB1kTo4u3YiZrry1FQJQ9py-sHU3YGT82gSk-Y6t3LWBEzdP3N51xGWfOKlX_vejyniEfNjZ-r-5g2Y95Mg9KNQ0vw1XcB3YuquNb8ehwb7AvXabLSdTXLjByPJq4_E5PefsKWCQNCIDeITMfJf1HECPLZI8KX46uWfAAAA__-iVqsR">Major emissions trading fight looms at EU summit</a></h3>
+<!-- end core/heading --><p style="">A blocking minority of member states is pushing to weaken the bloc’s carbon pricing mechanism — which requires industries to pay for their pollution. </p>
+</div>
+<!-- -->
+<!-- eo/post -->
+<div>
+    <!-- core/image -->
+            <img src="https://static.euobserver.com/2025/11/f80d984689df89bb14e5824c71fb4513-1200x800.jpg" width="570" style="width: 100%; max-width: 570px; height: auto; display: block; border-radius: 10px;"
+                     >
+    <!-- end core/image -->
+<!-- core/heading -->
+<h3 style="font-size: 16px; color: #32353a;"><a href="https://email.mgeu.euobserver.com/c/eJxskc1u3CAUhZ8Gdoz4NXjBotVoXsPCcGeG1BgLrtP27SuiNFWjbO93uAc-1oDxueTkjaGx7gi_0MNZ1w7tFRpLIW-_L5LLiSvhaPImwmQpeGGtmrlwTtOnD8IE5YSwKk0izDbNWjqdjIVV8ruRNPsG5VhKyBu0xUZtHL_z5WOJIpqXB5yXf9WXWAt9qevb3QTd_BPx6ER9I_JG5O3_IJE3ya22-o2wcnZkHevB1rDvkFh8QskxbJ2tkPcH63VLDCsL95ZjYC9negA72wM6K3D0UaFuDcsStxx_EHVNTjswsyFyGuNezxaBqOtnVe-8QMpnGXw8-X0YQzlCfuxj3cguJe8nwiJmruT0NzT-YEeirsbQcXjpsCdoQ8Nk7DpFN39ok7T5gER-_wlbrAUQOhLNP0lE_0UdRSjHFhC-hK9e_gkAAP__C6-xRg">EU must stop banned chemicals being sold to Africa, judge urges MEPs</a></h3>
+<!-- end core/heading --><p style="">The South African tribunal on agrotoxins wants its government to overhaul national laws on chemicals and pesticides and for the EU to apply a blanket ban on the sale of banned substances.</p>
+</div>
+<!-- -->
+<!-- eo/post -->
+<div>
+    <!-- core/image -->
+            <img src="https://static.euobserver.com/2023/12/fbcf6563e3b86f295cef9ad8171152fc-1200x800.jpeg" width="570" style="width: 100%; max-width: 570px; height: auto; display: block; border-radius: 10px;"
+                     >
+    <!-- end core/image -->
+<!-- core/heading -->
+<h3 style="font-size: 16px; color: #32353a;"><a href="https://email.mgeu.euobserver.com/c/eJxskU2O3CAUhE8DO1oY_Ltgkajla1gYnttk-BM8dye3j4gmE2U026qiCn1v12jOzVk1DNSkiPATFVxpr1CeUJjVzv-6CS5GLruZWjUYGCcKqpsmufBunnt6qpnvmu8LGLHMxy6NlWbSS6-t4XzZR0udKhDyFrTzULbJ9MPMD759lEjS8_CA6_Zv-mZSoD_S_udvHfXqRMyVyG9ErESs_weJWAWf5CSIWPGqb8ykAJVdmb0cnkyz7HVkO9MHQmE5eVdPlgtUZyEiewImqOx0FVNxhlk4IBpgNUO0Lj6Y1682K9eCYTPemTci73bk88D5QcTY5JquYoDI-2d8734A667Q_IbhXTQ6ZO0esdW17BZcvBC2buFSjH9D7S4RibwPA22PtwrRQmloxmHaRzMvHygFLUojEd9f4BsFhIqk55_AovpijiKE7DXCl-ZTid8BAAD__6NSuls">Tusk comes up with a Plan B, after Polish president vetoes historic defence spending law</a></h3>
+<!-- end core/heading --><p style="">The Polish government is reaching for a workaround to access European loans for rearmament after president Karol Nawrocki vetoed a historic law enabling the EU’s SAFE programme. Meanwhile, an information campaign is spreading narratives of a ‘Narva separatist republic’ in Estonia, and a spy scandal is unraveling Slovenia’s election campaign.</p>
+</div>
+<!-- -->
+<!-- eo/post -->
+<div>
+    <!-- core/image -->
+            <img src="https://static.euobserver.com/2026/03/54485255533_280841f92d_o-1200x800.jpg" width="570" style="width: 100%; max-width: 570px; height: auto; display: block; border-radius: 10px;"
+                     >
+    <!-- end core/image -->
+<!-- core/heading -->
+<h3 style="font-size: 16px; color: #32353a;"><a href="https://email.mgeu.euobserver.com/c/eJxskc1u2zAQhJ-Gum1Akfo96NDC8GsIK3Jls-aPQK7s6u0LBWmKBrnuzHAGHxdkc5-dndq2Miky_eaJ9rQUyk_KYNH5401J1UldD5WdWkNdX9FU970eZT0MTXWfVpTajKrpBotqGPTSmVFb7LsaxwZbrNyUKWxzQOcpz71p2kGucv58RItGhhvtb_-q30wK1a-0vG-rKz_dmbci9A-hrkJd_zcKdVWyb-Qo1HV_ZHSRYEFmT6sjb2HfLDKBxQPqZtDwulMmyHspDguULbt4g7SuFIt7ErgC3j3IH8AJCmNmwGjhdT_AcQH0mdAeEBPDLZ1RTrB5jOc0fc0cZuOdeQh9WVu7tp0ZhOrOc0l7NiT05SviDz2QdXs49RPVx9Fg2NDdotCXd-8cXNyZ5nqUWnV_TeffRRb60rbVGZ4LRUv5xNe1_dKZYfzErao8IQv180XepEBMhUUjv8Dn6Zu6iilsHpm-FZ-T-hMAAP__d8rHBw">Ukraine Battlefield update (Day 1,483): Where Russia’s spring offensive is likely to start and why it’s already not going to plan</a></h3>
+<!-- end core/heading --><p style="">“The ground is drying out, soon ‘zelenka’ will appear [and] we will see what conclusions the Moskali [Russian forces] have drawn from the last summer campaign,” said one Ukrainian soldier.</p>
+</div>
+<!-- -->
+<!-- eo/post -->
+<div>
+    <!-- core/image -->
+            <img src="https://static.euobserver.com/2014/08/2cb0a1d848f884f0b1a4a3cf9301bfea-1200x675.jpg" width="570" style="width: 100%; max-width: 570px; height: auto; display: block; border-radius: 10px;"
+                     >
+    <!-- end core/image -->
+<!-- core/heading -->
+<h3 style="font-size: 16px; color: #32353a;"><a href="https://email.mgeu.euobserver.com/c/eJxskc1u3CAUhZ8GdowwGGMvWLQa-TUQPxebxsAI8KR5-8pRmqpRtuccOPd-15rudh29EgK7kjv87grOYhvUJ1TiTTzeboyyifJhxl4JB5PEoAYp-UKHeR7xrpyX0oZBWAOLBeDjwsLoIQgDzplhwlFVSA-dTDygaulGMdNA9ecnHI00bXDe_lXfXEn4V7Hvsw34UHvvj4b4D8RWxNb_g4itjMqRT4itNm4bVNJ3k0krCYipKUIjL2_xSV5NzY2UQJiklJJQKsQtkxC3vUNtpGRSz9aiaaRFD1cXX2tP2h3RvSB-tz44GbxDbLrkVs7qAPH7V2YffgIfz3T51-4fojPpYeKWEb-_Z3WK-eygh4VyNv0NXcfIHfG7EPh6rBtkD_XiMQlpJzcvn_wYrsp0xH6-wuFKgg6to5F-odnVN3W4Q3ocpsO35lOxPwEAAP__DJq2sg">‘Bigger than some armies’: Kyiv warns of 27,000 foreign fighters on Russia’s side</a></h3>
+<!-- end core/heading --><p style="">“This number is larger than some armed forces in some of the European countries,” says Andriy Yusov, a Ukrainian intelligence spokesperson. Many come from post-Soviet states, but around 1,800 are Africans.</p>
+</div>
+<!-- -->
+<!-- eo/post -->
+<div>
+    <!-- core/image -->
+            <img src="https://static.euobserver.com/2026/03/ChatGPT-Image-18-mar-2026-12_16_59-1200x800.png" width="570" style="width: 100%; max-width: 570px; height: auto; display: block; border-radius: 10px;"
+                     >
+    <!-- end core/image -->
+<!-- core/heading -->
+<h3 style="font-size: 16px; color: #32353a;"><a href="https://email.mgeu.euobserver.com/c/eJxskUtu3DAQRE9D7jjgT59ZcJFgoGsIUqtnRJsfgWxZmdsHMhwHNrytKrK6X88TwTr6xTUNh5wI_5DDPc8VyxsWsUw-PC9a6lYa1fPFNYBtx9GprjNXqfre8tUt2kJrFbTdXd0BEBARZa9amG1nbMe9Kxi3MU4-YBk7sE0v73L8_MQwK-MD98v_6gvkyF_y_D6b4sGtRFtl5hfTA9PD1yDTg5adMYrpYcZnTouA4quvIuYFxbE-RcqHiLmgoHVKAs_lcC95QxH3SgJy3AISCk9VQMlHEi94YBDVp0dAEafyinR2m6FQHCF4eGXmdrXaNuaqmG5Puea9ADJz-87ww4-4-D2e_sniQ4QpbpN_JGZu79kx-rQTjuoqjW7_hc7jJGLm1jT8fDxWTAuWk0_bdHML_fWTp-bFTcT07wMD5IiElZiV3-iS-6GOE8YtTIQ_mm9O_w0AAP__OPG7_g">Beyond crisis mode: Why now more than ever, Europe must complete its crown-jewel single market</a></h3>
+<!-- end core/heading --><p style="">The strongest message that can come out of Thursday’s EU summit would be if European leaders fully commit themselves to completing the EU single market, without which Europe cannot unlock the growth potential needed to cover rising defence spending and build a truly inclusive economy, write Enrico Letta and Pascal Lamy.</p>
+</div>
+<!-- -->
+<!-- eo/post -->
+<div>
+    <!-- core/image -->
+            <img src="https://static.euobserver.com/2026/03/Orban-Eger-2-1960x1307-1-1200x800.jpg" width="570" style="width: 100%; max-width: 570px; height: auto; display: block; border-radius: 10px;"
+                     >
+    <!-- end core/image -->
+<!-- core/heading -->
+<h3 style="font-size: 16px; color: #32353a;"><a href="https://email.mgeu.euobserver.com/c/eJxskc9u3CAQxp8GbqwwGGwfOLRa-TWsMR6vaQxYME67b185SlMlyvX7w4d-MwP5bQqLM4b7nAj_kMMzzxXLKxaxQNifNyWVlbrp-eKMR9txdE3X6UE2fd_yzXVo10YqXGQz6HbVppmlAtDWKN0Z3fDgCsZjihB2LFPnW9PLVU4fj2jWyvjA8_Z_-uZz5L_y_Pa3hu9uIzoq0z-YGpkaPweZGpXstLFMjTkJ2lA8Sj7TIqCKXGZIYgtURaWCSFVQFnXLBcV5iHoeRy4kQhIv-BQVgepVi_B4QhERQiIIqYodYbnG9VgoTn4P_oXpe4-r1P2wMmUvueazeGT6_hXiux9xCWe8_AvGu-ghHhAeien7W3aKIZ2EUzNIrey_0HWdREzfjeFXeaqYFiwXIGu62fp--ACqeHFATP38jbvPEQkrsVZ-wUvumzlOGI8dCL81X536GwAA__9v-bsj">On the ground as Orbán hits streets to shore up support in key seats, as Magyar maintains lead</a></h3>
+<!-- end core/heading --><p style="">Crowds pack the historic square of Eger on Tuesday, as Viktor Orbán campaigns like a rock star, drawing cheers and criticism alike. Supporters praise stability; sceptics cite failing services and demand change. With rival Péter Magyar gaining ground, Hungary’s election race reveals a country split between loyalty, fear, and growing political tension.</p>
+</div>
+<!-- -->
+<!-- eo/post -->
+<div>
+    <!-- core/image -->
+            <img src="https://static.euobserver.com/2022/01/1a33f0d5448f36d474c2756b87aab5f4.jpg" width="570" style="width: 100%; max-width: 570px; height: auto; display: block; border-radius: 10px;"
+                     >
+    <!-- end core/image -->
+<!-- core/heading -->
+<h3 style="font-size: 16px; color: #32353a;"><a href="https://email.mgeu.euobserver.com/c/eJxskc1u3CAUhZ8Gdoww-G8WLFqN_BoWhuMxrQELXyft21dEaapG2bC458CHvrtYctscvOk67nIi_CKDKy8nyguK8Dbsv29Kql7qZuTedA79wGGaYdB32YxjyzezdMPYt1qPd7eOyst2acbetd7DezeolQdTEI852rCjzINru1Gucv54RLNWxieu2z_0zeXIf-Tl7W8N381GdJxMf2NqYmr6v8jUpOSg1cDU9LpZEiUvKGRFBJ15tyIB_hSUhc_1fIJEgcAOR_DiKDiDRyKRV0EbBK6SD9gkDlv2YCMSVayeCsXZ7cH9ZPrRwTm7rGCqr-MzX8WB6cdnfe95hA9XrHnV8D50Nh42PBPTj7fuHEO6CHNzl1r1f0t1L4kqsuP18nwieZSqpu-GpXfj_UOl4sVYYur7K3aXIwgnsVZ-EkvmCxwnxGO3hC_DF6P-BAAA__91b7qy">What Roberta Metsola needs to do to get re-elected president of the European Parliament</a></h3>
+<!-- end core/heading --><p style="">As someone who voted twice for European Parliament president Roberta Metsola, I believe she can win a historic third term —&nbsp;but&nbsp;only&nbsp;if she reassures MEPs that she represents the interests of parliament, and not national governments, writes MEP Barry Andrews.</p>
+</div>
+<!-- -->
+<!-- eo/post -->
+<div>
+    <!-- core/heading -->
+<h3 style="font-size: 16px; color: #32353a;"><a href="https://email.mgeu.euobserver.com/c/eJxskEFvnTAQhH-NffOTWWMMBx9aPfE3kFmWhxtskFnymn9fEaWpGuU6M57xfmNgXIY4eWslbpnpN3s6t_Gg8kpFTSGubzfQ0GhTtXLyFqlxknzlnOl01ba1XLwbO9NNdTfDHAxB27Qakaaxso3W0FoZfaG0DynElcrgsLatnvXwWWJErdODztu_6RtuSf7axve_VXL1C_N-CPNDQC-g_z8ooAftDICAfo0HU1bPJeKi6FS4nZlLpEOFQup4RsYl5ocaA74o3lQ-caVQFGUqj7er3fSF04BrxBdh7s5BPc8jCWgu-djOgiTM_SulDz_RFM90-de1HyKGtIf4yMLc37NDivlkGqpOG2j-hi78mYW5Wyuvx8NBeaJyEWisGxtsu09iIIsPLODnk1bcEjEdLGr9hR_7b-YkU9rXwPSt-erhTwAAAP__56CwiQ">Listen: Which EU countries are switching back to nuclear energy?</a></h3>
+<!-- end core/heading --><p style="">Nuclear energy is no longer just a French affair. Brussels is changing its tune, and even the European Commission now sees a future where nuclear plays a key role in Europe’s energy mix. But here’s the real question: how many countries are quietly making a comeback to nuclear power?</p>
+</div>
+<!-- -->
+
+</div>
+<!-- end core/group -->
+<!-- core/group -->
+<div style="background-color: rgb(241, 241, 241);padding: 12px; border-radius: 10px;margin-bottom: 24px;">
+    <!-- core/heading -->
+<h2 style="font-size: 24px; color: #f0523c;">In case you missed it</h2>
+<!-- end core/heading --><!-- eo/post -->
+<div>
+    <!-- core/heading -->
+<h3 style="font-size: 16px; color: #32353a;"><a href="https://email.mgeu.euobserver.com/c/eJxskd1u3CAQhZ8G7ljxY4z3gotWK7-GNYbZXVrAFj9O8_aVozRVotyec-DMfLNCc88leKs1dVtu-KdZ7NtasRxYmIcQXy-Sy5ErMVFvtcPRULTCGHXlYpoG-rQSHIIzXEi8c1hH0BK1B8E1iPsEhgZbMO1LghCxLMYNeuJ3vnx8osjA0wP75X_1xW2J_trWt9kEjfbZ2l6J-kHkTOT8OUjkLLmRRhE598peoLC6Y_YhP1jILBTIzG09evaEA1mFAz2bDEshxrBlFsOBlVV4razns0DNpaXFxeB-E3VzA-Ag4E7keMp168UhUbevoN79hD70dPrnwu-ig7RDeGSibm_ZJYXcGy7iypUc_4XOC-RG1E1rej5eKmaP5YQwarOObrp-QJO0WGhE_nzB6LaEDWsjA_-CsNlv6mjDtEdo-K15WPk3AAD__519sbk">US war spending in Iran could have saved 87 million lives, says UN</a></h3>
+<!-- end core/heading --><p style="">“The US alone has already spent more money on this conflict in the last two and a half weeks than the $23bn (€19.9bn) I need to save 87 million lives this year,” said Tom Fletcher, a senior official at the United Nations.</p>
+</div>
+<!-- -->
+<!-- eo/post -->
+<div>
+    <!-- core/image -->
+            <img src="https://static.euobserver.com/2026/03/a7de37e3-032d-4435-a89b-ffb0d44cf1d6-1-1200x800.jpg" width="570" style="width: 100%; max-width: 570px; height: auto; display: block; border-radius: 10px;"
+                     >
+    <!-- end core/image -->
+<!-- core/heading -->
+<h3 style="font-size: 16px; color: #32353a;"><a href="https://email.mgeu.euobserver.com/c/eJxskc2O2yAUhZ8GdkT4YrCzYNHK8mtYGF8nzPBjAU6bt68YTafqKCvQOQcOfHc11d4Xt2kpqU2x4u-q8UxrwfzAzDbj_PMCHBQX3Ug3LS2qgaLuhkFceTeOPb1rZeXIsd_kBhwBcFVKrVL0vegHtY07dTpjOJZgnMe8DLaXI9_58nWJID0PNzwv_6ovNgX6ltaPt3XU63utRyHiB4GZwPx_kMAMfIArEJhTXk1kGd_Q1sLwZLuxyIp5uHhjad8xsxTZ-Z6Ni8gOd6Bvm2KeLRATS863JaSIz1Ym5lzDYr2z70RMMEhpu44TUE0u6cwWiZi-Q_v0A27uDM1vn_8UrQmHcbdIxPSRXYKLZ8Wlu3IB6m-oTSNWIiYpaTu8FIwb5gZEyWFVdrx-AQSatakEfv5Cb1PAiqWSnn_DWfWLOloxHN5UfGk-NPwJAAD__5vRtQI">Orbán rejects EU face-saving offer on Ukraine pipeline, saying ‘no oil, no money’</a></h3>
+<!-- end core/heading --><p style="">Hungarian prime minister Viktor Orbán has dragged top EU officials into his re-election battle, even as the EU warned against “adversaries … in the system” on election integrity.&nbsp;</p>
+</div>
+<!-- -->
+<!-- eo/post -->
+<div>
+    <!-- core/image -->
+            <img src="https://static.euobserver.com/2024/06/d57260e3-66a4-4739-8737-530c0d70e4cf-3f2ba1af-b2b3-4a18-9a76-f99f22838a82-5831ada5-4f60-44d1-a681-1bb0e526182f-1200x800.jpeg" width="570" style="width: 100%; max-width: 570px; height: auto; display: block; border-radius: 10px;"
+                     >
+    <!-- end core/image -->
+<!-- core/heading -->
+<h3 style="font-size: 16px; color: #32353a;"><a href="https://email.mgeu.euobserver.com/c/eJxskc2O3CAQhJ8Gboz4Mdg-cEg08mtY_PTMkOXHwjAbv33k1WajrOZaVVDdX1vT3GMNXkuJXckNfjcNvdgd6hMq8SbE48IpV1SwCXstHagRg2bjKGbKpmnAD60YZdJTySarBlCT5Z4JdbvNVtgZRo-DrpC2NZkQoa6jG-REb3T9-kSggaY79Mu_6osrCf8q9mM2hqN-tLbtSPxAfEF8-T-I-MLpyJREfHl_lJ0Y17qJ8SC15xzynUAnt1Ih3DPZSgzuIM-SiYdKIhyQyZuJ0eykVOLK3sxZIpba0upicG9IXJmVZqazQ1yd8l56dYDE9TusTz-BDz2d_rn0p-hM2ky4ZySuH9k1hdwbrGymgqu_ofMKuSFxlRKfj9cdsod6glBytMpN8xc4jqs2DfGf7xBdSdBgb2ig3zA2_aION0hbNA1emk_N_wQAAP__zOey9Q">Who’s actually running EU foreign policy: von der Leyen, Kallas or Costa?</a></h3>
+<!-- end core/heading --><p style="">Ursula von der Leyen’s flurry of diplomacy after the US-Israel strikes on Iran is very hard to ignore. In the span of one day, she had conversations with eight foreign leaders, as well as with three EU countries — greatly overdoing communications by both the president of the European Council (António Costa) and the high representative (Kaja Kallas). Here’s why this is seen as highly controversial, or even problematic, within the EU institutional system.</p>
+</div>
+<!-- -->
+<!-- eo/post -->
+<div>
+    <!-- core/heading -->
+<h3 style="font-size: 16px; color: #32353a;"><a href="https://email.mgeu.euobserver.com/c/eJxskcGO3CAQRL8GboxwY2P7wCHRyL9hYeixScC2oJlk_j7yarNRVnutKqju14slt83Bm67j7tgJf5PBeiwF8xOz8DbE1w0kaKmagXvTOdQ9R9P0vRplMwwt34wfFyVlr33rlqWRDw3j-HDagURsvW15MBnTOScbIua5d203yIecPz5RrJVpxXr7V31zR-I_juVttoZHsxGdhalvDCYG0_9BBhPIHvTIYEp4FlGQBB3iEXYb40usGXEXMawbCayiFkHZehQebRRhF7TVXLx9iedBeBWoKVOaXQzuJ1N356BrwA8M9CWXo2aHTN0_g3r3E_pQ0-VfC7-LzqbThnVn6v6WnVPYK-HcjFKB_hu6LrATU_eu49fjueDuMV8QdNcv2g3jBzTg2Vhi8P0XRnckJCzEWvkJIZkv6jhhOqMl_NJ8GvgTAAD__z3_sYQ">MEPs set to finally green light EU-US trade deal in Thursday vote</a></h3>
+<!-- end core/heading --><p style="">MEPs are going to press ahead with a vote to approve the EU-US trade pact —despite most observers believing that it clear favours the US.</p>
+</div>
+<!-- -->
+<!-- eo/post -->
+<div>
+    <!-- core/heading -->
+<h3 style="font-size: 16px; color: #32353a;"><a href="https://email.mgeu.euobserver.com/c/eJxskcuO3CAQRb8GdrR4GONesEjU6t-wMJTbJDwsKE-Sv4_cmkw0o97WuXDh1OLQb3MMVmvqa0H4jRaOunRob9BYcDH9uUguR67ERIPVHkZDwQpj1JWLaRroZpfABxFkAKGkVOvkFm-0DG4B443RQKNtkPc5u5igzcYPeuIrnz8uUWTg-QHH5X_1xddMf9Tl-TZBk90Q907UNyLvRN4_B4m8S26EGZ-k1R3Y5jorlSV4uMQCrLFEjLWwurJaUizAYlnTAcVD68yVwHBzyJLzR3EsO0Ro_exS94Z59in6n0TdrlxoP00LkeM57vVoHoi6fXX2zjOEeOSTn39_H3qXdxcfhajbMzvnWA6EWVy5kuO_0LmMgkTdtKbn4blDCdBOH6M2y-in64c_SZt1SOT3X5B8zYDQkQz8i020L-ooQt6TQ3gJ36z8GwAA___9qbYR">Europe has no legal definition of online ‘influencers’ — and that lacuna matters</a></h3>
+<!-- end core/heading --><p style="">The EU has spent the last five years building the most ambitious digital regulatory framework on earth. It has regulated platforms, algorithms, AI models, political advertising, environmental claims, and data brokers. It has legal definitions for “very large online platforms” and “general purpose AI models.”&nbsp;But it doesn’t have one for “influencer” – and that’s an interesting oversight.</p>
+</div>
+<!-- -->
+<!-- eo/post -->
+<div>
+    <!-- core/image -->
+            <img src="https://static.euobserver.com/2024/06/edb7a12c-f9e1-4fb1-9544-9cc1993d26cc-a7efa87f-3c87-4c00-aaf0-e661875cbf2b-abac002a-76f4-4d65-937c-93b29afe9c27-5-1200x800.jpeg" width="570" style="width: 100%; max-width: 570px; height: auto; display: block; border-radius: 10px;"
+                     >
+    <!-- end core/image -->
+<!-- core/heading -->
+<h3 style="font-size: 16px; color: #32353a;"><a href="https://email.mgeu.euobserver.com/c/eJxskN1u3CAUhJ8G7ljhgw32BRetVn4NC-OTNS0_Kzjebd6-cpSmSpTbmWGG862O_L6EzQ4D9yUT_iGLR1kb1gdWsbkQXy8gQUvVjXyzg0dtONrOGDXJbhx7vluJqzOyd9J1q4a-GycwE2jopt5va9_zYCum-5JciFgX4_thlC9y-ShRrJfphsfl__TFl8R_lfXtbx2Pdie6N6Z-MJgZzJ-DDGaQg1GawfwMtAuM6CmU3ETJAkAkV_0unvurCE20WB6YgxMthi3km6AiaEdRw22ns17NldLiY_C_mbq-oBmkHjsG-pRbOapHpq5fMb37CbdwpNM_z30XvUt3F26ZqetbdkkhH4RLN0kF-l_o5J-Jqesw8PPx0jBvWE8EejCr9uP0gQx4tY4Y_Hxi9CUhYSPWyy8AyX4zxwnTPTrCb82Hhb8BAAD__56yr1c">With elections on 22 March, why is Slovenia sliding to the right?</a></h3>
+<!-- end core/heading --><p style="">A stable but flatlining economy, social tensions with Roma, welfare payments and emigrating medics, and a fragmented Left are all shaping the Slovenian electoral campaign, ahead of the parliamentary elections on 22 March.</p>
+</div>
+<!-- -->
+<!-- eo/post -->
+<div>
+    <!-- core/heading -->
+<h3 style="font-size: 16px; color: #32353a;"><a href="https://email.mgeu.euobserver.com/c/eJxsUc2O3CwQfBq49ciA_-bA4fs0mtewMLTHJAYsaNvrt4-82WyU1V6rqrtKVaMhOw_e6abhNkXCN9K4pbFg3jGDM345b7KSbaVEz51uLLYdRy26Tt0r0fc1n7UUYytHK6deNradnOi62qi7tVY5JWrLvc4Y1iEYv2AeOls3fTVVw-cTxeoqvHC7_bW-2RT4jzS-ZxN80TPRWpj6j8knk89_hUw-ZdUqKZl8-kiYd48HHJ5mSBEhTYBrIfSxwJm2-MJCULa8-z3lAh4OU0DUYKIDD3Na0QHNCCFFPMEDmhzRwZRTgIJvcKRtcZBxNT5DOCHjYsinWGa__nYNJ4REM-YrrXpmCoNdvP3J1GPsbC1qZ5lsL7ikLVtk6vG19Q8-oPNbuPirvQ_QmrAa_4pMPd61Q_BxIxzEvVKy_SO65ozE1KNp-HU8FIwO89Vo23Rja_v75wKSZ22Iyf8PXGwKSFiI1dWXPUh_Y8cJw7oYwm_JXctfAQAA__8sqs7P">[Interview] One of Epstein’s youngest survivors: ‘I was 14, and I hoped the money I earned from sex would repair my relationship with my mother’</a></h3>
+<!-- end core/heading --><p style="">Marina Lacerda was born in Brazil. She was eight years old when she moved to the United States with her mother. She was fourteen when she first stepped inside the New York residence of serial sex offender and trafficker Jeffrey Epstein.</p><!-- eo/post -->
+<div>
+    <!-- core/image -->
+            <img src="https://static.euobserver.com/2026/03/1280px-Tehran_-_The_Fourth_Day_of_War_13_Avash.webp-1200x800.png" width="570" style="width: 100%; max-width: 570px; height: auto; display: block; border-radius: 10px;"
+                     >
+    <!-- end core/image -->
+<!-- core/heading -->
+<h3 style="font-size: 16px; color: #32353a;"><a href="https://email.mgeu.euobserver.com/c/eJxskcFu3CAQhp8GbqwwGLAPHFqt9jUsGMa7tIAtwJv07StHaapEuc7_wQ_feNfhscRglaKwlY6v3eKx-Yb1iZUFF9Ofi-BCczlMNFgFqA1FOxgjZz5M00gfVuAUjDPeTcZzOQacYV3RiFX7Sc3AabQV875kFxPWxcCoJr7y5eMSSUae73hc_ldfYMv01-bf3jbQZB-9743IH0TciLh9Bom4Ca6F5kTcYnWF4euOtbOG2JhLruZY7sz5owRXANm2Mu8Ca4DF1bg1FgukI5wQxGdM7MXVs0feas8LpAi_ibwOahz1Ogci9Dlu21EBibx-9fWeZwzxyGd-_vt9CC7vLt4Lkdc3dsmxHB2XYeZS6H_QuYjSibwqRc_DS8MSsJ4utDJewzR_uBO0WteJ-PmCCbaMHVsnI_9isttv6mjHvCfX8dvwacXfAAAA__8ja7SW">Iran expert sees alarming abundance of bad scenarios, including civil war</a></h3>
+<!-- end core/heading --><p style="">Mojtaba Khamenei’s election as Iran’s new supreme leader signals a hardline turn, stronger Revolutionary Guards, and rising risk of civil conflict. Experts warn his ascension marks the dynastisation of the Islamic Republic, exposing contradictions at the heart of the regime. “There is an alarming abundance of negative scenarios,” says Iranist Lenka Hrabalová.</p>
+</div>
+<!-- -->
+
+</div>
+<!-- -->
+
+</div>
+<!-- end core/group -->
+
+                        
+					</td>
+                    <td width="12"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+
+
+	<!--  FOOTER 1 BEGIN-->
+	<tr>
+		<td align="center" style="background-color: #1d2732; padding: 30px 15px;">
+			<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:600px; margin: 0 auto;">
+				<tr>
+					<td align="center" style="font-family: sans-serif; font-size: 14px; line-height: 20px; color: #dddddd;">
+						<p style="margin: 0 0 10px 0; color: #ddd">
+							<a href="https://email.mgeu.euobserver.com/c/eJxskduO2yAQhp8G7hxxMGBfcNEq8mtYHMYJXWNHMN62b1-xbrdSNneIb2a-4cc7DPc5RasUDfuG8AstHLuvUN6hdNGl9fdFMKGZ5AONVgXQhoLlxsiR8WHo6d16bnwf-MAWbhhTjkktTAxai8UMXDuabIH8mLNLK5TZhF4NbGHz5xBJepZvcFz-qy9hz_TH7j9243S1d8RHJfIbERMRkwthPzZ8aiBiaqLuFBExtUNXATFtt0rEdGxdPXwNJXnooFEipuf3Ejnh_gYbkVc3Ot4rsfAeIDjllyG6RfbKaM9Gs0QidME8hzWFNyKvGqJiXLO_13U_SgAir18MJ88Q05EbPzc5Z7n8cOnW7B-1c07bgTDzkUmh_xW1r9qQyKtStDXPFbYIpaWllfE6DONnuoIW65CI7z9hDXsGhIqkZ09Zo32howj5sTqEl_Ddij8BAAD__x9bvhY" style="color: #ddd; text-decoration: underline;">Unsubscribe</a> or
+							<a href="https://email.mgeu.euobserver.com/c/eJxskN1u3CAUhJ8G7rriH_uCi1arfQ2ED8dZGmMsfJy0b185SlJptbfMmRnmmxLBPZYcrOXQVsI_FPBo0479DfuPnMry96KEckLLgedgAZ3nGKT3ehRyGAy_h5zQQhbOzCN476wGPaFDUDJLI03iJXSsW6ypLNijB2MHMYv4HaKZEfUFj8v_6gu0yn-36eNvki_hTrTtTP9k6sbULQG0Y6UHA1O3Fd_3BYmwM32j9oor09c0JmmsmqVBhGSnechp1sZ6N4nRz5kp16lGWAq8Mn01s3bSKv_5vLejAzJ9fQTzqVfM5ainfg78ykp1S-XlbP-4jbWsB2GUo9DKfR2dxFdi-motP81xxzVjP0c76ycHw_gNSfEeEjH16x0XaBUJd2JGPCCj8KSOE9ZtSYRPxbeg_gUAAP__r3iqNQ" style="color: #ddd; text-decoration: underline;">update your settings</a>.
+							Read our <a href="https://email.mgeu.euobserver.com/c/eJxsUMtugzAQ_Br7lsgPDObgQyvEb1hmWRK3GJBZ0ubvK6I0VaNcZ2Z3Hl0gOPvYO2M4zBPhNznc5m7FfMF86EMcr0clVCm0tLx3BrCsODpZVboW0tqCn10xWCNBmlpZaU099DBoFaQIQgy2HkoeXca0-BTiiNlXUBgrBuEfTzQrRDrhdvyzPsKc-Mfc3bJJProz0bIy_cZUy1T7X8hUu-R4CXA9LPMY4cp0myl5GCN8Mt0IOygodMdUucPrvGVAppvnpnc-YR-3tPN74jsIIS0hniamm5vWpzhthF7WQqvyV7RPOBHTjTF8P_YrTj3mvUVpqq4EWz9aK55dIKbev3CEOSHhSqwQTxuQe2HHCdMyBsKX5MWpnwAAAP__iw-bkQ" style="color: #ddd; text-decoration: underline;">Privacy Policy</a>.
+						</p>
+						<p style="margin: 0 0 10px 0;  color: #ddd">
+							Follow us on:
+							<a href="https://email.mgeu.euobserver.com/c/eJxskMtu8yAQRp8Gdn-EB3NbsPiryq-BuIwbWogjPEnTt6-SRSpVXX-ac44mRcrHUItXiuftRHgjj5ct7TiuOP6VWNvXAQRoISfLi1cZteHoJ2OkE5O1Mz96iNpGB6VotWbU0U7O6AQpCqnTippXP7CfQ4-14Qgmz8qKVYQnRLJZ9De8HH7Uh7x1_r6lR9vEmz8SnXcm_zNYGCy3-85geRwwuQzqIbeaP5h8VWWV4HLid1_Y8VRw3DFamaSzdU8t8OEjMXj5xJa3joQ7sVn8iiD_-ELo9XQhDJMTEjQn7OcWCf8crx6-AwAA__91bm7Z" style="color: #ddd; text-decoration: underline;">Twitter</a> |
+							<a href="https://email.mgeu.euobserver.com/c/eJxskMtu8yAQhZ8Gdr-FuXvB4q-qvAbiMm1oIVh4nDZvX8WLRJW6ndH5zqcTA6azL9kpRVO_IHyjg73HDcYVxr8cSr1NnHHNxGxpdiqBNhTcbIxY2GytpGe3gFoit8Ck0BJCFEwIZvNijDLRREuLG9BW30KpMLxJUln2xvwDIohk7R326Vk9pd7oR4-H20yrOyOuGxH_CT8RfoJ97bWk27T1VEK9HyV7pok4DWw-1ZI-iXgFK-yctaR3A7_BJcO4g7UyUSe7PEQ4HS4g4S9fUFNvgLDhL_Chhe7Yxbdy2RH8vDDBNUVoaw0Ifz6vjv8EAAD__97ZdHM" style="color: #ddd; text-decoration: underline;">Mastodon</a> |
+							<a href="https://email.mgeu.euobserver.com/c/eJxskE1u8yAQQE8Du8_ix2C8YPFVrW_QNYLxuHEDIcKTuL19lUhNparrmXnvaVIkOIR19sZwqCfCD_J4qWnDdsX2b45r_uyUUFZo6fjsDaAdOHo5DHoU0rmeH7wGs-g54WgG61Al1KAkxiRH1xu5WL76huUcSlwztjBAb5xYRHhANOtFecNL96PuoBb-XtO9TfLsD0Tnjen_TE1MTfu-d0sETLUeb6tMTS-v37dMT41KgLzCkenntEi00o785g8bnmZsN6w1Q7LgxkeG4s1HYuppxwy1IOFGrBe_osjfvxLKeroQBjkKrSwnLOccCf8cXr36CgAA___cZXS2" style="color: #ddd; text-decoration: underline;">Facebook</a> |
+							<a href="https://email.mgeu.euobserver.com/c/eJxs0M1u6yAQBeCngd21MP8sWNyq8msgDOOEFuwIT-L27atkkUhV1zNz5tOZI6ZzKNkrRdO2Inyhh-s279Bv0P_lWOr3wBnXTIyWZq8SaEPBj8YIx0ZrJT17kItQI7jEFweLs5HLrLWUghsLkBktvkO7hBZLhR5MksqyhYVniCCStRNch9frIW2NfmzzwzbS6s-Il52I_4RPhE_HcQxl3TGeemz3XcKn1zERU8cWUi3pk4j3bIV0ZlH0Dgg7rBn6PVcrM-tk3dPBafcRCX87oKatAcKORLJfKvSPWkIr6xUhjI4JrilCu9SI8Ofw5vlPAAAA__9ifHU6" style="color: #ddd; text-decoration: underline;">Instagram</a> |
+							<a href="https://email.mgeu.euobserver.com/c/eJxs0E2O4yAQBeDTwG4sKLCNFyxmNPI1ED-VDh2wLVyJO7dvJYtEavW6Su99esFTPLucbN_zuC6EX2TxuoYd2w3bn-RzuXcgYBBKGp5sH3EYOVo5jmoS0hjNzxYQQOswnhSkSQRQqE5aGp1kiCmg59k2rJurPhdsboy6N-Ik3CtEMS3qB167d3UX18o_1_C0SV7smWjbmfrLYGYwH8fRlbxcMOXl8cpgjmvd_HJnML9TmJobVRdLjhem_geth8mEiT8kbsclYXsUDP0YhmimFwh4s54Y_DuwxLUi4U5Mix88ss99XM3LldDJSSgYOGHdiif89Xiz8B0AAP__zdZ4jQ" style="color: #ddd; text-decoration: underline;">LinkedIn</a>
+						</p>
+						<p style="margin: 0; color: #ddd">&copy; EUobserver 2026</p>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<!--  FOOTER 1 END-->
+
+	<tr style="height: 48px">
+		<td>&nbsp;</td>
+	</tr>
+
+</table>
+
+<img width="1" height="1" alt="" src="https://email.mgeu.euobserver.com/o/eJxsj89ugzAYw5-G3IY-8p9DLnuRKCRmZSJQhY9ue_upPXTS1Kst_2xPifMlLiUYI_K-Mb454NynA-2G9lbSsv70kqQlNXhRgsmwTiAMzqmRBu-1uATtSU22SJQZowKSKdlKV5TNuniaxRIa6jXWtKxo0WVtPM0UnxDVaaofOPu_6j7vVXzu02PbIO7ReGAraHfFGjfZ7McnQYoWEnfy_Qtr3isYB3ea_vE4PA7FumwnIw4jKWkFo17XxHhp3oL8DQAA___qkV5C"></body>
+</html>
+`;
+function mountNewsletter() {
+  const fr = document.getElementById('newsletterFrame');
+  if (!fr) return;
+  fr.srcdoc = NL_HTML;
+}
+/* ── WAVEFORM ────────────────────────────────────── */
+function buildWaveform() {
+  const w = document.getElementById('waveform');
+  if (!w) return;
+  for (let i = 0; i < 38; i++) {
+    const s = document.createElement('span');
+    s.style.height = (8 + Math.random() * 28) + 'px';
+    s.style.opacity = 0.25 + Math.random() * 0.5;
+    w.appendChild(s);
+  }
+}
+
+/* ── TAB SWITCHING ────────────────────────────────── */
+function switchTab(key) {
+  document.querySelectorAll('.pkg-tab').forEach(t => t.classList.toggle('active', t.textContent === {
+    awareness:'Campaign Awareness', thought:'Thought Leadership', policy:'Policy Influence', event:'Event Promotion'
+  }[key]));
+  document.querySelectorAll('.pkg-tab-panel').forEach(p => p.classList.toggle('active', p.dataset.tab === key));
+  trackEvent('tab', key);
+}
+
+function switchProdTab(ctx, key) {
+  const bar = document.querySelector('.pkg-tabs[data-ctx="'+ctx+'"]');
+  if (bar) bar.querySelectorAll('.pkg-tab').forEach(t => t.classList.toggle('active', t.getAttribute('onclick').includes("'"+key+"'")));
+  document.querySelectorAll('.pkg-tab-panel[data-ctx="'+ctx+'"]').forEach(p => p.classList.toggle('active', p.dataset.ptab === key));
+  trackEvent('product-tab', ctx+'/'+key);
+}
+
+/* ── TRACKING ─────────────────────────────────────── */
+function trackEvent(action, label) {
+  if (SHEET_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') return;
+  try {
+    const payload = {
+      type: 'event',
+      action: action,
+      label: label || '',
+      timestamp: new Date().toISOString(),
+      path: `${C.goal} > ${C.audience.join('+')} > ${C.budget}`
+    };
+    fetch(SHEET_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
+  } catch(e) {}
+}
+
+/* ── LEAD FORM ───────────────────────────────────── */
+const SHEET_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+
+function submitLead(e) {
+  e.preventDefault();
+  const form  = e.target;
+  const msgEl = form.closest('.form-section').querySelector('.form-msg') || document.getElementById('formMsg');
+  const data  = new FormData(form);
+  const payload = {};
+  data.forEach((v, k) => payload[k] = v);
+  payload.timestamp = new Date().toISOString();
+  payload.path = payload.path || `${C.goal} > ${C.audience.join('+')} > ${C.budget}`;
+  msgEl.textContent = 'Sending…'; msgEl.className = 'form-msg';
+
+  if (SHEET_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+    setTimeout(() => { msgEl.textContent = "Thanks — we'll be in touch soon."; msgEl.className = 'form-msg success'; form.reset(); }, 600);
+    return;
+  }
+  fetch(SHEET_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) })
+    .then(() => { msgEl.textContent = "Thanks — we'll be in touch soon."; msgEl.className = 'form-msg success'; form.reset(); })
+    .catch(() => { msgEl.textContent = 'Something went wrong — please email at@euobserver.com instead.'; msgEl.className = 'form-msg error'; });
+}
+
+/* ── INIT ────────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', () => {
+  const s0 = document.getElementById('s0');
+  s0.classList.add('active');
+  requestAnimationFrame(() => s0.classList.add('visible'));
+  buildWaveform();
+  mountNewsletter();
+  trackEvent('open', document.referrer || 'direct');
+});
+</script>
+</body>
+</html>
