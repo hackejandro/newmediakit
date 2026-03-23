@@ -1673,7 +1673,7 @@ function trackEvent(action, label) {
 }
 
 /* ── LEAD FORM ───────────────────────────────────── */
-const SHEET_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwOtQQ_FpX_b1eGA_0ip6KNmVdxPmwuaL7D_0LbWmuahRkCsagUq5Jy7kcn-XkEoMwc/exec';
 
 function submitLead(e) {
   e.preventDefault();
@@ -1686,7 +1686,7 @@ function submitLead(e) {
   payload.path = payload.path || `${C.goal} > ${C.audience.join('+')} > ${C.budget}`;
   msgEl.textContent = 'Sending…'; msgEl.className = 'form-msg';
 
-  if (SHEET_URL === 'https://script.google.com/macros/s/AKfycby6R_JGpkC75IBW4CbqNUotRws1lBuiVeMFZG4u3sj3NX9c-DqzqaGSgWxfhBVL0tnU/exec') {
+  if (SHEET_URL === 'https://script.google.com/macros/s/AKfycbwOtQQ_FpX_b1eGA_0ip6KNmVdxPmwuaL7D_0LbWmuahRkCsagUq5Jy7kcn-XkEoMwc/exec') {
     setTimeout(() => { msgEl.textContent = "Thanks — we'll be in touch soon."; msgEl.className = 'form-msg success'; form.reset(); }, 600);
     return;
   }
