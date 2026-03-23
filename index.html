@@ -1659,7 +1659,7 @@ function switchProdTab(ctx, key) {
 
 /* ── TRACKING ─────────────────────────────────────── */
 function trackEvent(action, label) {
-  if (SHEET_URL === 'https://script.google.com/macros/s/AKfycbwOtQQ_FpX_b1eGA_0ip6KNmVdxPmwuaL7D_0LbWmuahRkCsagUq5Jy7kcn-XkEoMwc/exec') return;
+  if (SHEET_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') return;
   try {
     const payload = {
       type: 'event',
@@ -1686,7 +1686,7 @@ function submitLead(e) {
   payload.path = payload.path || `${C.goal} > ${C.audience.join('+')} > ${C.budget}`;
   msgEl.textContent = 'Sending…'; msgEl.className = 'form-msg';
 
-  if (SHEET_URL === 'https://script.google.com/macros/s/AKfycbwOtQQ_FpX_b1eGA_0ip6KNmVdxPmwuaL7D_0LbWmuahRkCsagUq5Jy7kcn-XkEoMwc/exec') {
+  if (SHEET_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
     setTimeout(() => { msgEl.textContent = "Thanks — we'll be in touch soon."; msgEl.className = 'form-msg success'; form.reset(); }, 600);
     return;
   }
